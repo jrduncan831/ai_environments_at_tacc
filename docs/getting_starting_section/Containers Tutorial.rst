@@ -1,7 +1,7 @@
 Containers Tutorial
 ===================
 
-Docker is a platform for developing, shipping, and running applications inside containers. Containers are lightweight, portable, and ensure that applications run consistently across different environments. TACC already has an excellent resources for [building containers at TACC](https://containers-at-tacc.readthedocs.io/en/latest/). Our goal with this introduction is to do a quick review of this tutorial with emphasis on AI/ML applications.  If you are new to containers, we highly suggest you review the containers tutorial first.  In this tutorial, we will review key concepts about containers at TACC as well as review how to utilize based gpu enabled containers at TACC.
+Docker is a platform for developing, shipping, and running applications inside containers. Containers are lightweight, portable, and ensure that applications run consistently across different environments. TACC already has an excellent resources for `building containers at TACC<https://containers-at-tacc.readthedocs.io/en/latest/>`_. Our goal with this introduction is to do a quick review of this tutorial with emphasis on AI/ML applications.  If you are new to containers, we highly suggest you review the containers tutorial first.  In this tutorial, we will review key concepts about containers at TACC as well as review how to utilize base gpu enabled containers at TACC.
 
 What is a Docker Image?
 -----------------------
@@ -17,7 +17,7 @@ Setting GPU enabled PyTorch Container at TACC
 ---------------------------------------------
 Below we will walk you through the steps for setting up a GPU enabled Pytorch container at TACC.  
 
-**Step 1: Login to Frontera **  
+**Step 1: Login to Frontera**  
 
 We will use the Frontera supercomputer in this tutorial.  To login, you need to establish a SSH connection from your laptop to the Frontera system.  Instructions depend on your laptop's operating system.
 
