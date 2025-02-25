@@ -55,9 +55,6 @@ Understanding the difference between the three are quite simple:
     - **$WORK**: Useful for general projects that require more storage and can be considered semi-persistent. This directory is designed for active data or ongoing work that needs more space than $HOME, but is not temporary. Files here are not as likely to be purged, but users should still manage space appropriately.
     - **$SCRATCH**: Useful for work that may be discarded, as this directory may get purged after a certain period. $SCRATCH is ideal for temporary files, large datasets, or computational outputs that do not need to be preserved. This space is designed for jobs in progress or interim work that will be cleaned up automatically to avoid storage overflow.
 
-The $WORK environment is different from the $SCRATCH and $HOME environments because it is mounted on the global shared file system hosted on **Stockyard**–meaning it is available on Frontera, Stampede3, and most of the other HPC systems available through TACC. $WORK is the highest directory on a **global shared file system** between several different HPC systems for ease of access between machines. The directory is structured as follows:
-.. image:: _static/images/stockyard-2022.jpg
-
 
 Extra information
 -----------------
