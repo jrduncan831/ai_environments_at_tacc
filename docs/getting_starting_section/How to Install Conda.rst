@@ -44,8 +44,9 @@ TACC systems require two-factor authentication. Follow the on-screen prompts to 
    
     It is best practice to use the $WORK directory.
 
-Conda can create virtual environments, meaning you do not need to install it within a virtual environment, but it is highly advised you install it on the $WORK directory.
-
+- Although in terms of I/O, **$SCRATCH** is actually the best place to install Conda and run subsequent tasks, files in this directory are routinely purged to save space. If you choose to install Conda in $SCRATCH, understand that you may have to re-install every so often.
+- Ensure any output is bundled into a .tar file and moved into $WORK if using Conda for a high I/O task in $SCRATCH.
+- **Placing Conda in $WORK is the best possible environment because it has enough storage capacity for Conda’s precompiled packages (NumPy, Tensorflow, etc.) but is not regularly purged.**
 
 **Step 5. Install MiniForge**
     - Open your terminal or command prompt. Navigate to the directory where the installer was downloaded.
