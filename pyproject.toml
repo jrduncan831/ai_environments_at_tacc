@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-ml-tacc"  
+version = "0.1.0"
+authors = [{name = "Juliana Duncan", email = "jrduncan@tacc.utexas.edu"}, {name = "Alexis Phan", email = "alexisphan@utexas.edu"}]
+description = "Introduction to AI/ML with TACC"
