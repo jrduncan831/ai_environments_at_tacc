@@ -16,16 +16,7 @@ For this guide's purposes, we will use MiniForge.
 
 Steps to Install Conda
 ----------------------
-**Step 1. Download MiniForge**
-    - Go to the `MiniForge GitHub page. <https://github.com/conda-forge/miniforge/releases/latest>`_
-    - Choose the Appropriate installer for your operating system:
-    
-        - Windows
-        - Mac
-        - Linux
-
-**Step 2. Open a Terminal or Command Prompt**
-Open the terminal (or Command Prompt on Windows), SSH onto a TACC machine, and navigate to the directory where you want use Mini-Forge.
+**Step 1. Open a Terminal or Command Prompt.**
 
 **Step 3: Run the SSH Command**  
 Use the following command to connect to TACC systems:
@@ -51,7 +42,10 @@ TACC systems require two-factor authentication. Follow the on-screen prompts to 
 
 .. note::
    
-    It would be best to use the $WORK directory
+    It is best practice to use the $WORK directory.
+
+Conda can create virtual environments, meaning you do not need to install it within a virtual environment, but it is highly advised you install it on the $WORK directory.
+
 
 **Step 5. Install MiniForge**
     - Open your terminal or command prompt. Navigate to the directory where the installer was downloaded.
