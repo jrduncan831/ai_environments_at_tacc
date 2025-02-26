@@ -1,5 +1,5 @@
-Conda Tips and Tricks
-=====================
+Conda at TACC
+=============
 
 .. toctree::
    :maxdepth: 1

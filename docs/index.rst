@@ -28,5 +28,5 @@ Who Is This For?
    :caption: Content:
 
    getting_starting_section/Getting Started
-   ai_containers_tacc/Lets Get Advanced
-   conda_at_tacc/Conda Tips and Tricks
+   ai_containers_tacc/Containers at TACC 
+   conda_at_tacc/Conda at TACC
