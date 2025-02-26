@@ -144,13 +144,13 @@ Once Conda is installed, you can start creating and managing environments using 
 
     ::
         
-        conda create --name myenv
+        conda create --name myenv python
 
 2. **Activate an environment**:
 
     ::
         
-        conda activate myenv
+        conda activate myenv 
 
 3. **Deactivate an environment**:
 
@@ -186,7 +186,7 @@ Activate the environment
 
 ::
 
-    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+    pip3 install torch==2.4.1 torchvision==0.17.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu126
 
 
 Explanations:
@@ -201,16 +201,20 @@ Explanations:
 
 **Optional: Manage Your Dependencies Using a YAML File**
 
-If you would like, you can manage your Conda environments using a YAML file, which helps ensure consistency across different systems.
+If you would like, you can manage your Conda environments using a YAML file, which helps ensure consistency across different systems and distributed environments.
 
-**Step 1. Create a YAML File**
+Typically, conda environments are managed in a file called **environment.yml**, which defines and manages dependencies, environments, and channels. Let’s manually create one–you will need vim or nano to do this through the command line.
+
+**Step 1. Create an empty YAML File**
+First, we'll need to create an empty environment.yml file to store our dependencies in with the following command:
 
 ::
 
-    conda env create -f environment.yml
+    touch environment.yml
 
 
-**Step 2. Add your environmetn to your YAML File**
+**Step 2. Add your environment variables to your YAML File**
+Use the vim command **vim environment.yml** to open your environment file, then click the **insert** key on your keyboard to begin typing in these dependencies. When you are finished, click **esc** to get out of write mode, and then type in **:wq (write quick)** to save the contents of your file and exit out.
 
 ::
 
@@ -225,21 +229,29 @@ If you would like, you can manage your Conda environments using a YAML file, whi
         - torchaudio
         - cudatoolkit=12.6
 
-**Step .3 Export Your Current Environtment**
+**Step .3 Create your Conda environment with environment.yml**
+Now that we have our environment.yml file created, we can activate it with:
 
 ::
     
+    conda env create -f environment.yml
+
+**Step .4 Activate Conda Environment**
+Now that we have our **environment.yml** file created, we can activate it with:
+
+::
+    conda activate pytorch_env
+
+Congrats! Now you have a conda environment made with those dependencies that is easily shared between users thanks to our YAML file.
+
+**Step 5. Export your Conda Environment**
+You can now share this environment easily between systems thanks to the environment.yml file.
+Export it using the following command:
+
+:: 
     conda env export > environment.yml
 
 
-
-For more information, visit the official Conda documentation:  
+For more a more in-depth guide to using Conda, visit the official Conda documentation:  
 `<https://docs.conda.io/>`_
 
-
-
-
-
-//you can add in a yaml file like with virtual environments, to help manage, make it kind of a note, point them to the documentation if you want
-
-//show them your own yaml file, explain more on why we use this if they need it
