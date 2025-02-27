@@ -1,5 +1,8 @@
-Tools
-=====
+Tools for Managing AI/ML Environments
+#####################################
+
+Overview
+========
 
 This section provides an overview of several essential tools used in development and deployment workflows. These tools enable seamless management of dependencies, environments, and the portability of applications across different systems.
 
@@ -50,7 +53,37 @@ Virtual environments are essential tools for isolating dependencies within Pytho
 * **No System-Level Dependencies**: Virtual environments do not handle non-Python system libraries or software dependencies.
 * **Ideal for Small Projects**: Best suited for smaller projects where only Python dependencies need to be isolated without the complexity of managing other tools.
 
-.. image:: https://containers-at-tacc.readthedocs.io/en/latest/_images/arch_vm.png
-   :alt: Applications isolated by VMs.
-   :width: 500px
-   :align: center
+How They Are Different
+======================
+
+Each of these tools serves a distinct purpose, with specific use cases tailored to different needs in a project. While they can often be used together, each tool excels in a particular area of development or deployment.
+
+
+Conda vs Virtual Environments
+-----------------------------
+* **Conda:** More versatile since it manages both environments and packages, not just for Python but other languages too. Ideal for larger projects or projects that require multiple languages. 
+* **Virtual Environments:** More lightweight and Python-specific. Simpler and work better for smaller Python-only projects when we don't need to manage non-Python dependencies.
+
+Conda vs Containers
+-------------------
+* **Conda:** Best for managing environments and packages in a development environment, especially for data science and machine learning. However, Conda environments are typically not as portable or lightweight as containers.
+* **Containers:** Provides a more comprehensive solution by packaging not just dependencies but the entire application along with its environment, including the operating system. They are ideal for deployment and cross-platform consistency.
+
+Containers vs Virtual Environments
+----------------------------------
+* **Containers:** Fully encapsulated and provide complete isolation, including the operating system, making them ideal for deployment and running applications consistently across different systems.
+* **Virtual Environments:** Only isolates Python libraries and does not include system dependencies or the operating system itself. They are lightweight and easy to set up but are not as portable or complete as containers.
+
+Which of these tools make sense to use at TACC?
+===============================================
+
+While conda, virtual environments and containers can all be used a at TACC they are not all created equal.  Below we will discuss each option and when it maybe appropriate to use on our systems 
+
+Virtual Environments 
+--------------------
+
+When using Python for AI/ML applications, virtual environments are a great option. It allows you to isolate dependencies while also leveraging TACCs internal software that has been optimized for performance on our system.
+
+Conda
+-----
+If you can set up your environment without using conda at TACC, we would suggest this.  Conda is set up to be incrediblely helpful setting up complex environments on our laptops, but is not optimized to run at HPC centers.  That being said, if you need to use conda at TACC, we hope this resource provides guidance on how to best use it. 

@@ -29,7 +29,6 @@ ensures consistency across different development and production environments.
 
    Connecting to TACC
    Tools
-   How Are They Different
    How to Create and Activate a Virtual Environment
    How to Install Conda
    Containers Tutorial
