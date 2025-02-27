@@ -100,7 +100,7 @@ Once you have this file, it has to be installed in the **~/.local/share/jupyter/
 
 Test Kernel via TAP
 ~~~~~~~~~~~~~~~~~~~
-.. image:: ai_environments_at_tacc\docs\ai_containers_tacc\images\jupyter-kernel-tut-4.png
+.. image:: ai_environments_at_tacc\docs\ai_containers_tacc\images\jupyter-kernel-tut-3.png
     :alt: Tap Jupyter Tutorial 4
 
 You should now see the notebook kernel listed in the New menu on the right top of the interface as seen in the image above.  To test that your code is working, open a notebook with the newly created kernel and copy and paste code you would like to execute. 
