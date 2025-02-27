@@ -294,16 +294,31 @@ To test whether we can use multiple training GPUs, we'll first need to request 2
 .. note:
     If we don't specifically request 2 GPUs beforehand, when we run the multi_gpu_torchrun.py script, the program will run it on every GPU available. This may affect others using the GPU nodes on Frontera.
 
-
-
+**Step 4. Create a Conda environment**
+When you run **pwd**, you should see a directory that looks like this:
 :: 
+    /work/<group number>/<username>/frontera/examples/distributed/ddp-tutorial-series
 
-    conda activate pytorch_env
+Where you are in the $WORK directory and the ddp-tutorial-series folder.
+Now that we're working out of idev and we have our two nodes requested, we can create a new virtual environment and 
+Run the following two commands to create a Conda virtual environment called **pytorch-ddp**.
+::
+    conda create --name pytorch-ddp python -y
+    conda activate pytorch-ddp
 
-And within our virtual environment, we will use the **torchrun** command to launch the training script across 
+Since this is a new virtual environment, we'll have to install Pytorch on it again by running the following commands:
+*You will need CUDA to run Pytorch. 
 
+::
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
+And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (2).
+::
+    torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py
 
+This will distribute the training workload across all GPUs on your machine using `torch.distributed` and `DistributedDataParallel` (DDP).
+
+(Purpose behind training script here)
 
 
 For more information about multi-GPU training, see the following documentation: `Distributed Data Parallel in Pytorch`<https://pytorch.org/tutorials/beginner/ddp_series_intro.html>_
