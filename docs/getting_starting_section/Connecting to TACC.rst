@@ -6,7 +6,7 @@ All these tutorials will be configured to work specifically on TACC systems so b
 Prerequisites
 -------------
 1. **TACC Account**  
-    - If you haven't yet, create a TACC account `here <https://tacc.utexas.edu/portal/login?from=/portal/>`_.  
+    - If you haven't yet, create a TACC account `here <https://tacc.utexas.edu/portal/login?from=/portal/>`__.  
 
 2. **SSH Client**  
     - **Linux/macOS**: Use the built-in terminal.  
@@ -58,10 +58,11 @@ Understanding the difference between the three are quite simple:
 The $WORK environment is different from the $SCRATCH and $HOME environments because it is mounted on the global shared file system hosted on **Stockyard**–meaning it is available on Frontera, Stampede3, and most of our HPC systems.
 
 $WORK is the **highest** directory on a global shared file system between several different HPC systems for ease of access between machines. The directory is organized as follows:
-.. image:: _static\images\stockyard-2022.jpg
+
+.. image:: images/stockyard-2022.jpg
    :alt: stockyard_roots
 
-*image source*: `https://docs.tacc.utexas.edu/hpc/lonestar6/#files`<https://docs.tacc.utexas.edu/hpc/lonestar6/#files>_
+*image source*: `https://docs.tacc.utexas.edu/hpc/lonestar6/#files <https://docs.tacc.utexas.edu/hpc/lonestar6/#files>`_
 
 .. note:
     Because work is such a large environment shared between so many users, the following problems may emerge:
@@ -74,7 +75,7 @@ Working with Conda and Other ML Environments
 --------------------------------------------
 ML/AI tasks on TACC systems can require heavy resource utilization (for example, package installations and lookups, environment creation, etc.), and may lead to contention with other users. Additionally, since $WORK utilizes Lustre striping, performance is optimized for large files but can be inefficient for Conda environments, which contain thousands of small files.
 
-Additional information about running Conda on TACC systems can be found in `How to Install Conda`<ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>_, but for now, it is advisable to run Conda in the $SCRATCH environment due to its high I/O load.
+Additional information about running Conda on TACC systems can be found in `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_, but for now, it is advisable to run Conda in the $SCRATCH environment due to its high I/O load.
 
 Requesting a Node to Work On
 ----------------------------
@@ -82,14 +83,14 @@ In a supercomputer, a node is usually a single computer or server in a cluster. 
 
 In a typical HPC system, there are many more compute nodes than login nodes:
 
-.. image:: _static\images\hpc-schematic.jpg
+.. image:: images/hpc-schematic.jpg
    :alt: stockyard_roots
 
-*image source*: `ekatsevi.github.io`<https://ekatsevi.github.io/statistical-computing/hpc-basics.html#:~:text=Login%20nodes%20are%20like%20a,the%20workhorses%20of%20the%20HPC>_
+*image source*: `ekatsevi.github.io <https://ekatsevi.github.io/statistical-computing/hpc-basics.html#:~:text=Login%20nodes%20are%20like%20a,the%20workhorses%20of%20the%20HPC>`_
 
 **It is important to avoid running tasks on the login nodes**, because this is where users will be waiting to queue their tasks. By running tasks on these login nodes, you’ll be taking a lot of computational resources away from users who are logging onto the system, and can affect the amount of time they will be waiting in the queue.
 
-Each system has different kinds of nodes with different specifications for each, so if you want to understand how to fully utilize each system, you can find their documentation `here`<https://tacc.utexas.edu/systems/all/>_.
+Each system has different kinds of nodes with different specifications for each, so if you want to understand how to fully utilize each system, you can find their documentation `here <https://tacc.utexas.edu/systems/all/>`__.
 
 Requesting a Specific Node (GPU, CPU, etc.)
 -------------------------------------------
