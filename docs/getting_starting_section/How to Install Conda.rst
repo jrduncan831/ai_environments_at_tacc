@@ -185,7 +185,7 @@ Once Conda is installed, you can start creating and managing environments using 
 
 Lets Install PyTorch
 --------------------
-Now that we have Conda installed, lets try installing PyTorch
+Now that we have Conda installed, let's try installing PyTorch.
 
 **Step 1. Create a Conda Enviornment**
 
@@ -270,6 +270,43 @@ Export it using the following command:
  
     conda env export > environment.yml
 
+Running an Example script (multi_gpu_torchrun.py)
+-------------------------------------------------
+Now that we have created a Conda environment with Pytorch, we can try running an example script where we ensure that our environment works for multi-GPU training- a task with many applications in ML/AI in HPCs.
+By downloading and running a python script from the official Pytorch repository called **multi_gpu_torchrun.py**, we can enable single training jobs to utilize multiple GPUs on a machine.
+
+**This portion of the tutorial will require the use of Git- do not worry about downloading it. It is already installed on TACC systems!**
+
+**Step 1. Clone the Pytorch Repository**
+This is an official repository containing dozens of example scripts from the Pytorch library. For the purposes of this tutorial, we will be cloning it into the $WORK directory. Ensure you do not install it into the Conda environment!
+::
+    git clone https://github.com/pytorch/examples.git
+
+**Step 2. CD into the ddp tutorial series folder**
+Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **example**.
+Now **cd** into the following directory:
+::
+    cd examples/distributed/ddp-tutorial-series
+
+**Step 3. Use idev to request 2 nodes**
+To test whether we can use multiple training GPUs, we'll first need to request 2 GPUs, which we will do through the idev tool.
+
+.. note:
+    If we don't specifically request 2 GPUs beforehand, when we run the multi_gpu_torchrun.py script, the program will run it on every GPU available. This may affect others using the GPU nodes on Frontera.
+
+
+
+:: 
+
+    conda activate pytorch_env
+
+And within our virtual environment, we will use the **torchrun** command to launch the training script across 
+
+
+
+
+
+For more information about multi-GPU training, see the following documentation: `Distributed Data Parallel in Pytorch`<https://pytorch.org/tutorials/beginner/ddp_series_intro.html>_
 
 For more a more in-depth guide to using Conda, visit the official Conda documentation:  
 `<https://docs.conda.io/>`_
