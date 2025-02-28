@@ -1,7 +1,7 @@
 Connecting to TACC
 ==================
 
-All these tutorials will be configured to work specifically on TACC systems so before we proceed, here is a quick tutorial on how to access and work on TACC's systems.
+The tutorials hosted on this website are designed for running ML tasks on TACC HPC systems specifically. A detailed outline for accessing our systems is present below.
 
 Prerequisites
 -------------
@@ -41,41 +41,43 @@ TACC systems require two-factor authentication. Follow the on-screen prompts to 
 
 Tips and Troubleshooting
 ------------------------
-- If you cannot connect, verify your username, hostname, and network settings.
-- Contact TACC support if you encounter issues: `<https://portal.tacc.utexas.edu/help/>`_
-- If you run into issues with your account, try using the TACC-specific Sanitytool module to run diagnostics on user account issues: `<https://docs.tacc.utexas.edu/include/sanitytool/>`
+- If you cannot connect through SHH, verify your username, hostname, and network settings.
+- If you run into issues while using a machine, try using the TACC-specific Sanitytool module to run diagnostics: `<https://docs.tacc.utexas.edu/include/sanitytool/>`
+- Contact TACC support if you encounter further issues: `<https://portal.tacc.utexas.edu/help/>`_
 
 Directories Explained
 ---------------------
 
-While working on TACC systems, there are 3 main directories that users will utilize. $HOME, $WORK, and $SCRATCH. 
+While working on TACC systems, there are 3 main directories that users can utilize: $HOME, $WORK, and $SCRATCH. 
 
-Understanding the difference between the three are quite simple: 
+**Directories:** 
     - **$HOME**: Useful for projects needing small environments as $HOME does not have much storage. It's typically used for personal scripts, configuration files, and other small files that you want to persist over time.
     - **$WORK**: Useful for general projects that require more storage and can be considered semi-persistent. This directory is designed for active data or ongoing work that needs more space than $HOME, but is not temporary. Files here are not as likely to be purged, but users should still manage space appropriately.
-    - **$SCRATCH**: Useful for work that may be discarded, as this directory may get purged after a certain period. $SCRATCH is ideal for temporary files, large datasets, or computational outputs that do not need to be preserved. This space is designed for jobs in progress or interim work that will be cleaned up automatically to avoid storage overflow.
+    - **$SCRATCH**: Useful for work that may be discarded, as this directory is regularly purged. $SCRATCH is ideal for temporary files, large datasets, or computational outputs that do not need to be preserved. This space is designed for jobs in progress or interim work that will be cleaned up automatically to avoid storage overflow.
 
-The $WORK environment is different from the $SCRATCH and $HOME environments because it is mounted on the global shared file system hosted on **Stockyard**–meaning it is available on Frontera, Stampede3, and most of our HPC systems.
+.. note::
+    The $WORK environment is different from the $SCRATCH and $HOME environments because it is mounted on the global shared file system hosted on **Stockyard**–meaning it is available on Frontera, Stampede3, and most of our HPC systems.
 
-$WORK is the **highest** directory on a global shared file system between several different HPC systems for ease of access between machines. The directory is organized as follows:
+$WORK is the **highest** directory on a global shared file system between several different HPC systems because it makes sharing between machines easy. The organization of the $WORK directory is outlined in the following diagram.
 
 .. image:: images/stockyard-2022.jpg
    :alt: stockyard_roots
 
 *image source*: `https://docs.tacc.utexas.edu/hpc/lonestar6/#files <https://docs.tacc.utexas.edu/hpc/lonestar6/#files>`_
 
-.. note:
+.. note::
     Because work is such a large environment shared between so many users, the following problems may emerge:
-
-- **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
-    - *One method of solving this is to **run high I/O operations in the $SCRATCH directory**, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
-- **Striping** - the $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
+    - **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
+        - *One method of solving this is to **run high I/O operations in the $SCRATCH directory**, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
+    - **Striping** - the $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
 
 Working with Conda and Other ML Environments
 --------------------------------------------
-ML/AI tasks on TACC systems can require heavy resource utilization (for example, package installations and lookups, environment creation, etc.), and may lead to contention with other users. Additionally, since $WORK utilizes Lustre striping, performance is optimized for large files but can be inefficient for Conda environments, which contain thousands of small files.
+ML/AI tasks on TACC systems can require **heavy resource utilization** (for example, package installations and lookups, environment creation, etc.), and may lead to contention with other users. 
 
-Additional information about running Conda on TACC systems can be found in `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_, but for now, it is advisable to run Conda in the $SCRATCH environment due to its high I/O load.
+Additionally, since $WORK utilizes Lustre striping, performance is optimized for large files but can be inefficient for Conda environments, which contain thousands of small files.
+
+Additional information about running Conda on TACC systems can be found in `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_, but for now, it is advisable to run Conda tasks in the $SCRATCH environment due to its high I/O load.
 
 Requesting a Node to Work On
 ----------------------------

@@ -11,7 +11,7 @@ Virtual Environments, Containers, and Pip.
 
 The main purpose of using these tools is to ensure that the dependencies for one project don’t 
 interfere with another. This is especially critical in complex AI/ML projects, where multiple libraries, 
-frameworks, and languages may be used. The tools provide isolation, which helps avoid conflicts and 
+frameworks, and languages may be used. These tools provide isolation, which helps avoid conflicts and 
 ensures consistency across different development and production environments. 
 
 **Objectives :**
