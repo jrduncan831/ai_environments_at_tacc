@@ -238,7 +238,7 @@ Once the environment is properly activated, your working directory should look l
 To install Pytorch in our new Conda environment- which is in the $WORK directory of Frontera, running in a single rtx node idev session- run the following pip command in the environment:
 
 ::
-    pip3 install torch==2.4.1 torchvision==0.17.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu126
+    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
     *Specific versions of torch libraries are used to avoid incompatbility with the new Python 13 update.*
 
 Where:
