@@ -1,5 +1,5 @@
-How to Create and Activate a Virtual Environment
-================================================
+Virtual Environments with Pytorch
+=================================
 
 Virtual environments are essential for isolating project dependencies and ensuring compatibility across different projects. This guide explains how to create a virtual environment using Python's built-in `venv` module.
 
@@ -85,6 +85,7 @@ Steps to Activate a Virtual Environment
 In our case, it should look like:
 
     ::
+
         cd /work/<group number>/<TACC username>/frontera/myenv
 
 3. Activate the environment with:
@@ -182,6 +183,7 @@ We should now see a new directory called **examples** present in our virtual env
 And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
 
 ::
+
     torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py 5 10
 
 This will distribute the training workload across all GPUs on your machine using `torch.distributed` and `DistributedDataParallel` (DDP), and train the model for 5 epochs and run checkpoints every 10 seconds.

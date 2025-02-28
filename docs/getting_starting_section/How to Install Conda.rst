@@ -1,5 +1,5 @@
-How to Install Conda
-====================
+Conda with Pytorch
+==================
 
 Now that we have set up a virtual environment in Python using the venv module, let's take a look at an alternative method of setting up virtual environments with **Conda**.
 
@@ -278,6 +278,7 @@ Now **cd** into the following directory:
 And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
 
 ::
+
     torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py 5 10
 
 This will distribute the training workload across all GPUs on your machine using `torch.distributed` and `DistributedDataParallel` (DDP), and train the model for 5 epochs and run checkpoints every 10 seconds.
