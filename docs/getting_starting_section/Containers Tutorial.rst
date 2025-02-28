@@ -38,7 +38,9 @@ In this tutorial, we follow the workflow highlighted in `TACC's container tutori
 
 Setting GPU enabled PyTorch Container at TACC
 ---------------------------------------------
-Below, we will walk you through the steps for setting up a GPU-enabled Pytorch container at TACC. For the purposes of this tutorial, we will be using the **Frontera** system.
+Below, we will walk you through the steps for setting up a GPU-enabled Pytorch container at TACC to run the **Multigpu_Torchrun.py** testing script from the `How to Create a Virtual Environment`<ai_environments_at_tacc\docs\getting_starting_section\How to Create and Activate a Virtual Environment.rst>_ and `How to Install Conda`<ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>_ tutorials.
+
+For the purposes of this tutorial, we will be using the **Frontera** system.
 
 **Step 1: Login to Frontera**  
 ::
@@ -105,28 +107,31 @@ Which should return:
     apptainer is /opt/apps/tacc-apptainer/1.3.3/bin/apptainer
 
 **Step 4. Download test data**
-First, we will download some test data to run a simple ML task on. Clone the examples 
+First, we will download some test data to run a simple ML task on. Clone the examples library from the official Pytorch Github repository by running:
 
 ::
 
     git clone https://github.com/pytorch/examples.git
 
+
+
 **Step 5. Pull a Prebuilt PyTorch Docker Image**
 
-Instead of creating our own Dockerfile, we can use an official PyTorch image from DockerHub
+Instead of creating our own Dockerfile that is GPU-enabled, we can use an official PyTorch image from `DockerHub`<https://hub.docker.com/>_ to make the process of setting up a container for GPU use easier for us.
+For more detailed instructions on how to build and upload your own Docker image from scratch, see `TACC's official Docker tutorial.`<https://hub.docker.com/>_
 
 .. note::
 
-    DockerHub is official cloud-based repository where developers store, share, and distribute Docker images. Similar to GitHub but for Docker containers.
+    DockerHub is the official cloud-based repository where developers store, share, and distribute Docker images, similar to Github.
 
-Run the following command to pull the latest PyTorch image with CUDA support.
+Run the following command to pull the latest PyTorch image from Dockerhub with CUDA support:
 
 ::
     
     apptainer pull output.sif docker://pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
 
 This will download the image and convert it into an Apptainer image format (.sif).
-You can replace "output.sif" with whatever you would like to name the file. Otherwise it will default to the name of the image.
+You can replace "output.sif" with whatever you would like to name the file. Otherwise, it will default to the name of the image as defined on Dockerhub.
 
 .. note::
     
