@@ -206,9 +206,6 @@ You should be in the **work** folder for Frontera. In this work folder, begin yo
 
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
-This will request a **single compute node (-N 1 -n 1)** in the **rtx-dev** partition/queue **(-p)** for a time length of **two hours (-t 02:00:00).**
-The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and Pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website <https://tacc.utexas.edu/systems/all/>`_ for more information.
-
 .. note:
     If we don't specifically request 1 compute node beforehand, when we run the multigpu_torchrun.py script, the program will run it on every GPU available. This may affect others using the GPU nodes on Frontera.
 
@@ -269,14 +266,13 @@ This is an official repository containing dozens of example scripts from the Pyt
 
 
 **Step 6. CD into the ddp tutorial series folder**
-Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **example**.
+Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **examples**.
 Now **cd** into the following directory:
 
 ::
     
     cd examples/distributed/ddp-tutorial-series
 
-*This will be a hidden directory.*
 
 **Step 7. Run multigpu_torchrun.py**
 And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).

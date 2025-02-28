@@ -8,6 +8,9 @@ Prerequisites
    - Python 3.3 or newer installed on your system. (Usually pre-installed)
    - A terminal or command prompt to execute commands.
 
+.. note::
+    Some parts of this tutorial require the use of Git, which is pre-installed onto TACC systems. 
+
 Steps to Create a Virtual Environment
 -------------------------------------
 
@@ -23,22 +26,15 @@ Use the following command to connect to TACC systems:
 
 (replace `<username>` with your TACC username and `<hostname>` with the system hostname)
 
-**Example:**
-To connect to the Frontera system:
+For the purposes of this tutorial, we will be utilizing the **Frontera** system, so our command should look like:
 
 ::
 
-    ssh username@frontera.tacc.utexas.edu
-
-**Enter Your Password**  
-When prompted, type your TACC password. If this is your first time logging in, you may be required to set up or reset your password.
-
-**Step 4: Set Up Two-Factor Authentication**  
-TACC systems require two-factor authentication. Follow the on-screen prompts to complete the process.
+    ssh <username>@frontera.tacc.utexas.edu
 
 .. note::
    
-    It would be best to use the $WORK directory
+    It is best practice to use the $WORK directory to host our environment, since the $SCRATCH directory is regularly purged.
 
 
 **Step 5. Create the Virtual Environment**
@@ -63,7 +59,6 @@ The virtual environment directory contains:
    - **`lib`**: Includes the standard library and site packages for your virtual environment.
    - **`pyvenv.cfg`**: Configuration file for the virtual environment.
 
-
 Virtual environments are an essential tool in Python development, allowing you to isolate project dependencies and avoid conflicts between different projects. This guide will walk you through the steps to activate a virtual environment.
 
 Prerequisites
@@ -87,17 +82,22 @@ Steps to Activate a Virtual Environment
             
         cd /path/to/your/environment
 
+In our case, it should look like:
+
+    ::
+        cd /work/<group number>/<TACC username>/frontera/myenv
+
 3. Activate the environment with:
 
     ::
 
-        source /path/to/virtual-env/bin/activate
+        source /work/<group number>/<TACC username>/frontera/myenv/**bin/activate**
 
-Replace `virtual-env` with the name of your virtual environment. For example in our previous tutorial, `myenv`
+Upon activation, you should see parentheses around the name of your environment appear in front of your working directory, like so:
 
     ::
         
-        (myenv) C:\Users\UserName\YourProject
+        (myenv) login3.frontera(470)$
 
 
 
@@ -119,7 +119,80 @@ Troubleshooting
 
 Congratulations! You now know how to activate and deactivate a virtual environment to keep your Python projects organized and conflict-free.
 
+Let's try **testing this Virtual environment by running a script.**
 
+Testing our Virtual Environment with Multigpu_Torchrun.py
+---------------------------------------------------------
+**Multigpu_Torchrun.py** is a script from the official Pytorch repository that leverages **distributed data parallel (DDP)** to split ML training tasks across GPUs,
+allowing for a more efficient runtime. The Multigpu_Torchrun.py script can be found in the Github repository below:
 
+`https://github.com/pytorch/examples`<https://github.com/pytorch/examples>
 
+To test whether our virtual environment works and can run Pytorch scripts, models, and other complex ML tasks in isolation, we'll be **downloading the Multigpu script from this repository**, **installing Pytorch**, and **running an example benchmarking function from the script**, all **within our virtual environment**.
+
+**Step 1. Reactivate your new environment**
+
+**Step 2. Download the repository inside of the environment**
+You can download a Github repository through the command line with the command **git clone**.
+
+::
+
+    git clone https://github.com/pytorch/examples.git
+
+**Step 3. Request a Node through idev**
+To run our example script, we'll need to allocate a single node for the purposes of our task. One node on Frontera has 4 GPUs, which is adequate to run Multigpu_Torchrun.py's benchmarking function.
+
+.. note::
+    We request a single node because Multigpu_Torchrun runs training tasks across as many nodes on the system as possible by default, and if we run it without specifying a number of nodes to use, it may affect the runtime of other users on the system.
+
+Begin your `idev`<https://docs.tacc.utexas.edu/software/idev/> session by running the following in your virtual environment:
+::
+
+    idev -N 1 -n 1 -p rtx-dev -t 02:00:00
+
+This will request a **single compute node (-N 1 -n 1)** in the **rtx-dev** partition/queue **(-p)** for a time length of **two hours (-t 02:00:00).**
+The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and Pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website <https://tacc.utexas.edu/systems/all/>`_ for more information.
+
+When you request a node through idev, you will be taken to a loading screen. After your idev session starts, your current working directory will look like:
+
+::
+
+    (myenv) c196-011[rtx](452)$
+
+This is how you will know your idev session has begun. **Ensure you see the (myenv) tag before your working directory. If you do not, activate your virtual environment again.** 
+
+**Step 4. Download Pytorch into our Virtual Environment**
+To run Multigpu_Torchrun, we will need to install Pytorch and a few critical Torch libraries to support our script's ML training tasks. Run the following pip command inside of your virtual environment to install Pytorch:
+
+::
+
+    pip3 install torch torchvision torchaudio
+
+**Step 5. CD into the ddp tutorial series folder**
+We should now see a new directory called **examples** present in our virtual environment.
+**cd** into the following directory:
+
+::
+    
+    cd examples/distributed/ddp-tutorial-series
+
+*This will be a hidden directory.*
+
+**Step 6. Run multigpu_torchrun.py**
+And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
+
+::
+    torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py 5 10
+
+This will distribute the training workload across all GPUs on your machine using `torch.distributed` and `DistributedDataParallel` (DDP), and train the model for 5 epochs and run checkpoints every 10 seconds.
+
+When run successfully, you should get a result like this:
+
+.. image:: images/multigpu_result.png
+    :alt: multigpu_result
+
+.. note::
+    The task may take a few minutes to run.
+
+Congratulations! You have now run a successful multi-GPU training task in a virtual python environment.
 
