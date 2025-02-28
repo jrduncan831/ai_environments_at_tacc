@@ -263,12 +263,14 @@ By downloading and running a python script from the official Pytorch repository 
 
 **Step 5. Clone the Pytorch Repository**
 This is an official repository containing dozens of example scripts from the Pytorch library. For the purposes of this tutorial, we will be cloning it into our new environment. 
+
 ::
     git clone https://github.com/pytorch/examples.git
 
 **Step 6. CD into the ddp tutorial series folder**
 Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **example**.
 Now **cd** into the following directory:
+
 ::
     cd examples/distributed/ddp-tutorial-series
 
@@ -276,6 +278,7 @@ Now **cd** into the following directory:
 
 **Step 7. Run multigpu_torchrun.py**
 And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
+
 ::
     torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py 5 10
 
