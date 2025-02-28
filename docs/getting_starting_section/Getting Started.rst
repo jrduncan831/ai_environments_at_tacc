@@ -1,25 +1,20 @@
-Getting Started 
-===============
-
-**Intro :**
+Welcome to AI/ML Environments @ TACC 
+====================================
 
 Proper environment management is crucial in complex projects involving multiple languages, 
-libraries, and frameworks. Thankfully, various tools have been created to address this, including Conda, 
-Virtual Environments, Containers, and Pip. 
+libraries, and frameworks. This is especially critical in complex AI/ML projects, where multiple libraries,
+frameworks, and languages may be used.
+Thankfully, various tools have been created to address this, including Conda, 
+Virtual Environments, Containers, and Pip.   
 
-**Purpose :**
+In the first section of this tutorial we will cover:
 
-The main purpose of using these tools is to ensure that the dependencies for one project don’t 
-interfere with another. This is especially critical in complex AI/ML projects, where multiple libraries, 
-frameworks, and languages may be used. These tools provide isolation, which helps avoid conflicts and 
-ensures consistency across different development and production environments. 
+#. Describe an overview of how to access and leverage TACCs supercomputers
+#. Define and highlight the difference between various tools relevant to building AI/ML environments at TACC  
+#. Gain experience installing Pytorch on our systems in three ways using virtual environments, conda and containers
 
-**Objectives :**
-
-* **Educate** users about the pros and cons of different tools: virtual environments, Conda, and containers.
-* **Optimize** AI/ML workflows by leveraging TACC’s high-performance hardware like GPUs, ensuring efficient use of resources.
-* **Provide** actionable instructions for building these environments with a focus on ease of use and compatibility with TACC machines
-
+If you are already familiar with this information, feel free to skip ahead to our advanced sections on Containers and Conda  
+to learn how to best use the tools for AI/ML workloads at TACC. 
 
 
      
