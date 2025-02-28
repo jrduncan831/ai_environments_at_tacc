@@ -126,7 +126,7 @@ Testing our Virtual Environment with Multigpu_Torchrun.py
 **Multigpu_Torchrun.py** is a script from the official Pytorch repository that leverages **distributed data parallel (DDP)** to split ML training tasks across GPUs,
 allowing for a more efficient runtime. The Multigpu_Torchrun.py script can be found in the Github repository below:
 
-`https://github.com/pytorch/examples`<https://github.com/pytorch/examples>
+`https://github.com/pytorch/examples <https://github.com/pytorch/examples>`_
 
 To test whether our virtual environment works and can run Pytorch scripts, models, and other complex ML tasks in isolation, we'll be **downloading the Multigpu script from this repository**, **installing Pytorch**, and **running an example benchmarking function from the script**, all **within our virtual environment**.
 
@@ -145,7 +145,7 @@ To run our example script, we'll need to allocate a single node for the purposes
 .. note::
     We request a single node because Multigpu_Torchrun runs training tasks across as many nodes on the system as possible by default, and if we run it without specifying a number of nodes to use, it may affect the runtime of other users on the system.
 
-Begin your `idev`<https://docs.tacc.utexas.edu/software/idev/> session by running the following in your virtual environment:
+Begin your `idev <https://docs.tacc.utexas.edu/software/idev/>`_ session by running the following in your virtual environment:
 ::
 
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
