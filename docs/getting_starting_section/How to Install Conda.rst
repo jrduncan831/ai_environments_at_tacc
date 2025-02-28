@@ -195,22 +195,26 @@ idev is a tool developed by TACC to facilitate real-time software development on
 First, we'll start an idev session. Ensure your current directory is:
 
 ::
+
     /work/<group number>/<TACC username>/frontera
 
 You should be in the **work** folder for Frontera. In this work folder, begin your idev session by running:
 
 ::
+
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
 This will request a **single compute node (-N 1 -n 1)** in the **rtx-dev** partition/queue **(-p)** for a time length of **two hours (-t 02:00:00).**
 The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and Pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website <https://tacc.utexas.edu/systems/all/>`_ for more information.
 
 .. note:
+
     If we don't specifically request 1 compute node beforehand, when we run the multigpu_torchrun.py script, the program will run it on every GPU available. This may affect others using the GPU nodes on Frontera.
 
 When you request a node through idev, you will be taken to a loading screen as your job awaits being run. After your idev session starts, your current working directory will look like:
 
 ::
+
     c196-012[rtx](416)$
 
 This is how you will know your idev session has begun.
@@ -219,6 +223,7 @@ This is how you will know your idev session has begun.
 We can now create our first Conda Environment. Create a **Python 3.10** environment to ensure it works with CUDA by running the command:
 
 ::
+
     conda create --name pytorch_env python=3.10
 
 Upon creation, the terminal should prompt you with a series of yes/no questions pertaining to the libraries that Conda will automatically install in the environment.
@@ -227,17 +232,20 @@ Select **yes** to create the environment.
 Once the environment is created, **activate** it with:
 
 ::
+
     conda activate pytorch_environment
 
 Once the environment is properly activated, your working directory should look like:
 
 ::
+
     (pytorch_env) c196-012[rtx](418)$
 
 **Step 4. Install Pytorch in Conda Environment**
 To install Pytorch in our new Conda environment- which is in the $WORK directory of Frontera, running in a single rtx node idev session- run the following pip command in the environment:
 
 ::
+
     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
     *Specific versions of torch libraries are used to avoid incompatbility with the new Python 13 update.*
 
@@ -265,6 +273,7 @@ By downloading and running a python script from the official Pytorch repository 
 This is an official repository containing dozens of example scripts from the Pytorch library. For the purposes of this tutorial, we will be cloning it into our new environment. 
 
 ::
+
     git clone https://github.com/pytorch/examples.git
 
 **Step 6. CD into the ddp tutorial series folder**
@@ -272,6 +281,7 @@ Upon listing all of the directories now present in the **$WORK** folder, we shou
 Now **cd** into the following directory:
 
 ::
+
     cd examples/distributed/ddp-tutorial-series
 
 *This will be a hidden directory.*
@@ -280,6 +290,7 @@ Now **cd** into the following directory:
 And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
 
 ::
+
     torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py 5 10
 
 This will distribute the training workload across all GPUs on your machine using `torch.distributed` and `DistributedDataParallel` (DDP), and train the model for 5 epochs and run checkpoints every 10 seconds.
