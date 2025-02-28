@@ -1,6 +1,8 @@
 How to Install Conda
 ====================
 
+Now that we have set up a virtual environment in Python using the venv module, let's take a look at an alternative method of setting up virtual environments with **Conda**.
+
 Conda is a powerful package manager and environment management tool, widely used in data science and machine learning to manage dependencies and create isolated environments for different projects. This guide will walk you through the steps to install Conda on your system.
 
 Prerequisites
@@ -195,11 +197,13 @@ idev is a tool developed by TACC to facilitate real-time software development on
 First, we'll start an idev session. Ensure your current directory is:
 
 ::
+
     /work/<group number>/<TACC username>/frontera
 
 You should be in the **work** folder for Frontera. In this work folder, begin your idev session by running:
 
 ::
+
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
 This will request a **single compute node (-N 1 -n 1)** in the **rtx-dev** partition/queue **(-p)** for a time length of **two hours (-t 02:00:00).**
@@ -211,6 +215,7 @@ The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on F
 When you request a node through idev, you will be taken to a loading screen as your job awaits being run. After your idev session starts, your current working directory will look like:
 
 ::
+
     c196-012[rtx](416)$
 
 This is how you will know your idev session has begun.
@@ -219,6 +224,7 @@ This is how you will know your idev session has begun.
 We can now create our first Conda Environment. Create a **Python 3.10** environment to ensure it works with CUDA by running the command:
 
 ::
+
     conda create --name pytorch_env python=3.10
 
 Upon creation, the terminal should prompt you with a series of yes/no questions pertaining to the libraries that Conda will automatically install in the environment.
@@ -227,32 +233,24 @@ Select **yes** to create the environment.
 Once the environment is created, **activate** it with:
 
 ::
+
     conda activate pytorch_environment
 
 Once the environment is properly activated, your working directory should look like:
 
 ::
+
     (pytorch_env) c196-012[rtx](418)$
 
 **Step 4. Install Pytorch in Conda Environment**
 To install Pytorch in our new Conda environment- which is in the $WORK directory of Frontera, running in a single rtx node idev session- run the following pip command in the environment:
 
 ::
+
     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
     *Specific versions of torch libraries are used to avoid incompatbility with the new Python 13 update.*
 
-Where:
-
-- Pytorch is the main library.
-
-- Torchvision provides utilities for computer vision tasks.
-
-- Torchaudio is for audio-related tasks.
-
-- The link is a CUDA GPU specific version for our HPC purposes.
-
-.. note:
-    Pytorch may take several minutes to download.
+######################## FIX LATER TO BE CONDA INSTALLATION #########################
 
 Step 5. Running an Example Script
 ---------------------------------
@@ -265,13 +263,16 @@ By downloading and running a python script from the official Pytorch repository 
 This is an official repository containing dozens of example scripts from the Pytorch library. For the purposes of this tutorial, we will be cloning it into our new environment. 
 
 ::
+
     git clone https://github.com/pytorch/examples.git
+
 
 **Step 6. CD into the ddp tutorial series folder**
 Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **example**.
 Now **cd** into the following directory:
 
 ::
+    
     cd examples/distributed/ddp-tutorial-series
 
 *This will be a hidden directory.*
