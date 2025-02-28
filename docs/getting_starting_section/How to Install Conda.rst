@@ -283,7 +283,7 @@ This will distribute the training workload across all GPUs on your machine using
 
 When run successfully, you should get a result like this:
 
-.. image:: ai_environments_at_tacc\docs\getting_starting_section\images\multigpu_result.png
+.. image:: \ai_environments_at_tacc\docs\getting_starting_section\images\multigpu_result.png
     :alt: multigpu_result
 
 Congratulations! You have now run a successful multi-GPU training task in a Conda environment.
