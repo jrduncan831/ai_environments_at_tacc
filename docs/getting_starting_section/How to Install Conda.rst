@@ -243,14 +243,15 @@ Once the environment is properly activated, your working directory should look l
     (pytorch_env) c196-012[rtx](418)$
 
 **Step 4. Install Pytorch in Conda Environment**
-To install Pytorch in our new Conda environment- which is in the $WORK directory of Frontera, running in a single rtx node idev session- run the following pip command in the environment:
+To install Pytorch in our new Conda environment- which is in the $WORK directory of Frontera, running in a single rtx node idev session- run the following Conda command in the environment:
+
+.. note::
+    We will need to install Cuda to run the multigpu_torchrun.py file on the Frontera's NVIDIA GPUs.
 
 ::
 
-    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
-    *Specific versions of torch libraries are used to avoid incompatbility with the new Python 13 update.*
+    conda install pytorch torchvision torchaudio pytorch-cuda=12.6 -c pytorch -c nvidia
 
-######################## CHANGE LATER TO CONDA INSTALLATION #########################
 
 Step 5. Running an Example Script
 ---------------------------------
