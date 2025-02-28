@@ -250,7 +250,7 @@ To install Pytorch in our new Conda environment- which is in the $WORK directory
     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
     *Specific versions of torch libraries are used to avoid incompatbility with the new Python 13 update.*
 
-######################## FIX LATER TO BE CONDA INSTALLATION #########################
+######################## CHANGE LATER TO CONDA INSTALLATION #########################
 
 Step 5. Running an Example Script
 ---------------------------------
