@@ -3,7 +3,7 @@ Welcome to AI/ML Environments @ TACC
 
 Proper environment management is crucial in complex projects involving multiple languages, 
 libraries, and frameworks. This is especially critical in complex AI/ML projects, where multiple libraries,
-frameworks, and languages may be used.
+frameworks, and languages may be used leading to complex dependencies.
 Thankfully, various tools have been created to address this, including Conda, 
 Virtual Environments, Containers, and Pip.   
 

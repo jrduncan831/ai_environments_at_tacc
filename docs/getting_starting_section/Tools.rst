@@ -1,5 +1,5 @@
-Tools for Managing AI/ML Environments
-#####################################
+Tools for AI/ML Environments
+############################
 
 Overview
 ========
@@ -35,7 +35,7 @@ Conda
 
 .. image:: images/Conda_logo.svg
 
-*Image source: `https://github.com/conda <https://github.com/conda>`_*
+*`Image source: <https://github.com/conda <https://github.com/conda>`_*
 
 Conda is a tool for managing and sharing packages and environments, making it easy to install dependencies and keep projects isolated. It is especially favored by data scientists and ML experts thanks to how it seamlessly handles library installation and environment creation.
 
@@ -91,12 +91,14 @@ Commonplace Tools at TACC
 
 While conda, virtual environments and containers can all be used on TACC systems, some are easier to use than others:
 
-Virtual Environments 
---------------------
+Virtual Environments and Containers 
+-----------------------------------
 
 When using Python for AI/ML applications, virtual environments are a great option. They allow you to isolate dependencies while also leveraging TACCs internal software that has been optimized for performance on our system.
+Using containers is also highly recommended at TACC.  Please see `TACC's container tutorials <https://containers-at-tacc.readthedocs.io/en/latest/>`_ for more details. 
 
 Conda
 -----
 
-Conda can be used to set up complex environments on non-HPC systems, but it is not optimized for use on HPC systems. If you would like to use Conda, view our tutorial on `How to Install Conda`<\ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>` for use on our systems.
+Conda can be used to set up complex environments on non-HPC systems, but it is not optimized for use on HPC systems. If you would like to use Conda, view our tutorial on `How to Install Conda <\ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_ for use on our systems as well as our advanced Conda section.  
+This will give examples of various ways to install conda on our system to get the best performance. 
