@@ -68,7 +68,7 @@ $WORK is the **highest** directory on a global shared file system between severa
 .. note::
     Because work is such a large environment shared between so many users, the following problems may emerge:
     - **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
-        - *One method of solving this is to **run high I/O operations in the $SCRATCH directory**, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
+    - *One method of solving this is to **run high I/O operations in the $SCRATCH directory**, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
     - **Striping** - the $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
 
 Working with Conda and Other ML Environments
@@ -108,17 +108,17 @@ Ensure you have a TACC user account before attempting to use the analysis portal
 
 When you have successfully created and logged into your account, when you click on the tap.tacc.utexas.edu link, you should end up here:
 
-.. image:: \ai_environments_at_tacc\docs\_static\images\tap1.png
+.. image:: images/tap1.png
 
 We will select **Frontera** as the system, **DCV remote desktop** as our application, and **OTH 24002** as our project:
 
-.. image:: \ai_environments_at_tacc\docs\_static\images\tap2.png
+.. image:: images/tap2.png
 
 The **queue** option will determine which type of node you are on. Here you can see what queues are for development and which are for GPUs. This queue option will differ depending on the system you are using and the nodes that are available on that system.
 
 You can also choose the amount of nodes you may need for your task, as well as the time limit your job will have:
 
-.. image:: \ai_environments_at_tacc\docs\_static\images\tap3.png
+.. image:: images/tap3.png
 
 Requesting a Node Through idev
 ------------------------------

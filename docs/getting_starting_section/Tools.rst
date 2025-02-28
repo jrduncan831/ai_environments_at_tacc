@@ -33,9 +33,9 @@ Containers are lightweight, standalone packages that bundle an application with 
 Conda
 -----
 
-.. image:: \ai_environments_at_tacc\docs\getting_starting_section\images\Conda_logo.svg
+.. image:: images/Conda_logo.svg
 
-*Image source: `https://github.com/conda`<https://github.com/conda>_
+*Image source: `https://github.com/conda <https://github.com/conda>`_*
 
 Conda is a tool for managing and sharing packages and environments, making it easy to install dependencies and keep projects isolated. It is especially favored by data scientists and ML experts thanks to how it seamlessly handles library installation and environment creation.
 
