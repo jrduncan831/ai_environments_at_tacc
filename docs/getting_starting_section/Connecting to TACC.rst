@@ -42,8 +42,8 @@ TACC systems require two-factor authentication. Follow the on-screen prompts to 
 Tips and Troubleshooting
 ------------------------
 - If you cannot connect through SHH, verify your username, hostname, and network settings.
-- If you run into issues while using a machine, try using the TACC-specific Sanitytool module to run diagnostics: `<https://docs.tacc.utexas.edu/include/sanitytool/>`
-- Contact TACC support if you encounter further issues: `<https://portal.tacc.utexas.edu/help/>`_
+- If you run into issues while using a machine, try using the TACC-specific Sanitytool module to run diagnostics: `sanitytool <https://docs.tacc.utexas.edu/include/sanitytool/>`_
+- Contact TACC support if you encounter further issues: `TACC help desk <https://portal.tacc.utexas.edu/help/>`_
 
 Directories Explained
 ---------------------
