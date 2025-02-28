@@ -40,6 +40,10 @@ It also requires the following data files:
 Selecting a CUDA docker image to build from
 Once you know which version of CUDA you need, you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three flavors, base, runtime, and development:
 
+#. Step 1. base : includes the CUDA runtime (cudart)
+#. Step 2. runtime : Builds on the base and includes the CUDA math libraries and nccl. A runtime image that also includes cuDNN is available.
+#. Step 3. devel : Builds on the runtime and includes headers, development tools for building CUDA images. These images are particularly useful for multi-stage builds
+
 The image tag syntax is:
 
 ::
@@ -67,3 +71,129 @@ Writing a Dockerfile
 --------------------
 Now we can put everything together and build our container. The general process is that we use the FROM command to start with the nvidia CUDA container, then a series of RUN commands to install python and then perform pip installs of the desired python packages. Finally, we will copy in our script and data files into the container.
 
+::
+
+    FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
+
+    # Install python and pip
+    RUN apt-get update 
+    RUN apt-get install -y python3.8 
+    RUN apt-get install -y python3-pip
+    RUN pip install --upgrade pip
+
+    # Install pytorch
+    RUN pip install torch==1.7.1+cu110 \
+		torchvision==0.8.2+cu110 \
+		torchaudio==0.7.2 \
+		-f https://download.pytorch.org/whl/torch_stable.html
+
+    # Copy in requirements file and install required python pip packages
+    COPY requirements.txt .
+    RUN pip install -r requirements.txt
+
+    # Move to /code dir and add it to path
+    WORKDIR /code
+    ENV PATH=/code:$PATH
+
+    # Copy our code and training data, make it read/executable
+    COPY test.csv train.csv valid.csv /code/ 
+    COPY bert_classifier.py /code
+    RUN chmod +rx /code/bert_classifier.py
+    RUN chmod +r /code/*.csv
+
+Building a docker image from the Dockerfile
+When building the container, we have to build it for the specific computer architecture we plan to run the container on. 
+In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64.  
+A tutorial of how to automatically make builds for all possible architectures simultaneously is available `here <https://containers-at-tacc.readthedocs.io/en/latest/advanced/02.multiarchitecture.html>`_.  
+Also note, Docker Desktop on Mac/Windows can build for architectures different than the one they are running on by default, but Linux requires some additional software libraries (outlined in the linked tutorial)
+
+After you’ve saved your dockerfile, navigate to its location.  Ensure the bert_classifier.py, train.csv, test.csv, valid.csv, and requirements.txt files are all in the same directory as the dockerfile. Now run the following command to build the container:
+
+::
+
+    docker build --platform [architecture] -t [username]/[container name]:[tag] .
+
+Example:
+
+::
+
+    docker build --platform linux/amd64 -t gjaffe/bert-classifier:0.0.1 .
+
+**Optional: Test container locally**
+
+If you want to test out the container locally on a system with gpus you can run
+
+::
+
+    docker run --gpus all --ipc=host -it --rm [username]/[container name]:[tag]
+
+Example:
+
+::
+
+    docker run --gpus all --ipc=host -it --rm gjaffe/bert-classifier:0.0.1
+
+Upload container to dockerhub
+-----------------------------
+
+Once you’re satisfied with your container, you can upload the docker image to docker hub
+
+::
+
+    docker login
+    docker push [username]/[container name]:[tag]
+
+Example:
+
+::
+
+    docker push gjaffe/bert-classifier:0.0.1
+
+Installing container on TACC systems
+------------------------------------
+
+Now that you have a container on dockerhub, using it on TACC systems is straightforward. You don’t need an rtx node to run apptainer, but since most of our ML software requires GPUs, I find it easier to use an rtx node so I can test the container immediately
+
+Grab a single rtx node on Frontera:
+
+::
+
+    idev -N 1 -p rtx-dev -m 120
+
+Load apptainer module
+
+::
+
+    module load tacc-apptainer
+
+Pull container from dockerhub
+
+::
+
+    apptainer pull docker://[username]/[container name]:[tag]
+
+Example:
+
+::
+    
+    apptainer pull docker://gjaffe/bert-classifier:0.0.1
+
+This will create an apptainer container file in your current working directory with a “.sif” extension. You can rename the container to whatever you’d like. To run the container with an interactive shell and with nvidia gpu drivers activated (--nv flag) use this command:
+
+::
+    
+    apptainer shell --nv [container name]
+
+Example 
+
+::
+    
+    apptainer shell --nv bert-classifier_0.0.1.sif 
+
+Once you are inside the the container with an interactive shell, you can run the classifier code with the command:
+
+::
+
+    python3 /code/bert_classifier.py
+
+You have now succesfully built a GPU aware Pytorch container for a specific BERT application on Frontera.  In the next tutorial, we will talk about how you can set up this container as a kernel of a jupyter notebooks on TACC's system. 
