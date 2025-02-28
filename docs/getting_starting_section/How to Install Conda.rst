@@ -184,7 +184,7 @@ Once Conda is installed, you can start creating and managing environments using 
 
 
 Lets Install & Test PyTorch
---------------------
+---------------------------
 Now that we have Conda installed and our virtual environments created, let's try **installing and testing pytorch** by running the **multigpu_torchrun.py** script from the official Pytorch library.
 This script facilitates and streamlines the training of ML models on multiple GPUs, as well as benchmarks the performance of Pytorch-based models on multiple GPUs.
 
@@ -203,7 +203,7 @@ You should be in the **work** folder for Frontera. In this work folder, begin yo
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
 This will request a **single compute node (-N 1 -n 1)** in the **rtx-dev** partition/queue **(-p)** for a time length of **two hours (-t 02:00:00).**
-The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and Pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website`<https://tacc.utexas.edu/systems/all/>_ for more information.
+The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and Pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website <https://tacc.utexas.edu/systems/all/>`_ for more information.
 
 .. note:
     If we don't specifically request 1 compute node beforehand, when we run the multigpu_torchrun.py script, the program will run it on every GPU available. This may affect others using the GPU nodes on Frontera.
@@ -263,19 +263,22 @@ By downloading and running a python script from the official Pytorch repository 
 
 **Step 5. Clone the Pytorch Repository**
 This is an official repository containing dozens of example scripts from the Pytorch library. For the purposes of this tutorial, we will be cloning it into our new environment. 
+
 ::
     git clone https://github.com/pytorch/examples.git
 
 **Step 6. CD into the ddp tutorial series folder**
 Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **example**.
 Now **cd** into the following directory:
+
 ::
     cd examples/distributed/ddp-tutorial-series
 
-*This will be a hidden directory.
+*This will be a hidden directory.*
 
 **Step 7. Run multigpu_torchrun.py**
 And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
+
 ::
     torchrun --standalone --nproc_per_node=gpu multigpu_torchrun.py 5 10
 
@@ -283,7 +286,7 @@ This will distribute the training workload across all GPUs on your machine using
 
 When run successfully, you should get a result like this:
 
-.. image:: \ai_environments_at_tacc\docs\getting_starting_section\images\multigpu_result.png
+.. image:: images/multigpu_result.png
     :alt: multigpu_result
 
 Congratulations! You have now run a successful multi-GPU training task in a Conda environment.
@@ -346,6 +349,6 @@ Summary
 -------
 In this tutorial, you used idev to **request a GPU node to work on**, **installed and used Conda to create a virtual environment**, **installed Pytorch in a virtual environment**, and then **ran an example script using multiple GPUs for AI/ML training tasks and benchmarking.**
 
-For more information about multi-GPU training, see the following documentation: `Distributed Data Parallel in Pytorch`<https://pytorch.org/tutorials/beginner/ddp_series_intro.html>
+For more information about multi-GPU training, see the following documentation: `Distributed Data Parallel in Pytorch <https://pytorch.org/tutorials/beginner/ddp_series_intro.html>`_
 
 For more a more in-depth guide to using Conda, visit the official Conda documentation: https://docs.conda.io/
