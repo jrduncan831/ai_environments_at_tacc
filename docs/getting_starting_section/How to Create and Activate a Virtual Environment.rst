@@ -34,7 +34,7 @@ For the purposes of this tutorial, we will be utilizing the **Frontera** system,
 
 .. note::
    
-    It is best practice to use the $WORK directory to host our environment, since the $SCRATCH directory is regularly purged.
+    It is best practice to use the $WORK directory to host our environment, since the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks.
 
 
 **Step 5. Create the Virtual Environment**
