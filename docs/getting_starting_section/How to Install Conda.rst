@@ -44,7 +44,7 @@ TACC systems require two-factor authentication. Follow the on-screen prompts to 
 
 .. note::
    
-    It is best practice to use the $WORK directory.
+    It is best practice to use the $WORK directory to host our environment, since the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks.
 
 - Although in terms of I/O, **$SCRATCH** is actually the best place to install Conda and run subsequent tasks, files in this directory are routinely purged to save space. If you choose to install Conda in $SCRATCH, understand that you may have to re-install every so often.
 - Ensure any output is bundled into a .tar file and moved into $WORK if using Conda for a high I/O task in $SCRATCH.
@@ -187,7 +187,7 @@ Once Conda is installed, you can start creating and managing environments using 
 
 Lets Install & Test PyTorch
 ---------------------------
-Now that we have Conda installed and our virtual environments created, let's try **installing and testing pytorch** by running the **multigpu_torchrun.py** script from the official Pytorch library.
+Now that we have Conda installed and we understand how to **activate**, **deactivate**, and **delete** environments, let's try **installing and testing pytorch** by running the **multigpu_torchrun.py** script from the official Pytorch library.
 This script facilitates and streamlines the training of ML models on multiple GPUs, as well as benchmarks the performance of Pytorch-based models on multiple GPUs.
 
 To run the multi_gpu_torchrun script, we must first use the **idev** tool to request a GPU Node. Each Node on Frontera is comprised of four GPUs, which is why we'll only request one to run the multigpu_torchrun.py script.
