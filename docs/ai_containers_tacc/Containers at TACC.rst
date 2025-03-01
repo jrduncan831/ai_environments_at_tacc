@@ -1,10 +1,10 @@
 Containers at TACC
 ==================
-Now that we’ve walked you through connecting to our systems, what virtual environments are and how to use them, and how to create them with Conda and Docker, we can move on to more advanced topics in containerization that are relevant to TACC systems specifically.
+In the last section, we covered an overview of tools commonly used to build AI and ML applications and use each of these tools to install Pytorch on TACC's supercomputer, Frontera.
+In this section we will focus on building containers at TACC and leveraging these containers in Jupyter notebooks. 
 
-In this section, two tutorials are outlined: **Advanced Container Build with Pytorch** and **Containerized Kernel for Jupyter Notebooks**. 
-
-In the **Advanced Container Build** tutorial, we’ll walk through adding a BERT classifier model to a Dockerfile and sharing that image (read-only template for a container). In the **Containerized Kernel tutorial**, we’ll be learning how to share and distribute kernels (environments that run your code) in Jupyter Notebook.
+Well get started in the **Advanced Container Build** tutorial where we’ll walk through building a customized GPUS enabled container built for BERT classification model. 
+Then in the **Containerized Kernel tutorial**, we’ll be learning how to share and distribute kernels (environments that run your code) in Jupyter Notebook.
 
 
 .. toctree::
