@@ -6,13 +6,18 @@ In this tutorial, we will build off content from TACCs container tutorial by det
 
 Outline
 ~~~~~~~
-    1. Figure out which CUDA, pytorch, python version, and which additional python packages you need
-    2. Get a docker image with the CUDA version you want
-    3. Build a docker container on top of this image with the python, pytorch, and other packages you need
-    4. Upload container to dockerhub and then download it onto frontera and convert it to an apptainer container
+
+Before we dive into step by step instructions, we can talk about on a high level how this process of building a GPU enabled container works.  Generally, we can break the process down into four steps:
+
+#. Figure out which CUDA, pytorch, python version, and which additional python packages you need
+#. Get a docker image with the CUDA version you want
+#. Build a docker container on top of this image with the python, pytorch, and other packages you need
+#. Upload container to dockerhub and then download it onto frontera and convert it to an apptainer container
 
 BERT classifier code requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
     - We want to run the code contained in the bert-classifier.py script.  This code requires:
     - CUDA 11.0
     - Python 10
