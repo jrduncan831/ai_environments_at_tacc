@@ -24,8 +24,6 @@ BERT classifier code requirements
 
 Additional required python packages listed in requirements.txt are:
 
-// Go into more depth about each section
-
 ::
 
     seaborn == 0.11.2
@@ -39,9 +37,9 @@ Additional required python packages listed in requirements.txt are:
 
 Running a BERT model will also require the following data files:
 
-- `train.csv <https://github.com/eriksf/bert-classifier/raw/main/train.csv>`_
-- `test.csv <https://github.com/eriksf/bert-classifier/raw/main/test.csv>`_ 
-- `valid.csv <https://raw.githubusercontent.com/eriksf/bert-classifier/main/valid.csv>`_
+- `train.csv <https://github.com/eriksf/bert-classifier/blob/main/train.csv>`_
+- `test.csv <https://github.com/eriksf/bert-classifier/blob/main/test.csv>`_ 
+- `valid.csv <https://github.com/eriksf/bert-classifier/blob/main/valid.csv>`_
 
 These are the **training**, **testing**, and **validation** data respectively.
 
@@ -174,9 +172,11 @@ When building the container, we have to build it for the specific computer archi
 In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64. Specific architectures for TACC systems can be found `here.`<https://tacc.utexas.edu/systems/all/>_
 
 A tutorial of how to automatically make builds for all possible architectures simultaneously is available `here <https://containers-at-tacc.readthedocs.io/en/latest/advanced/02.multiarchitecture.html>`_.  
-Also note, Docker Desktop on Mac/Windows can build for architectures different than the one they are running on by default, but Linux requires some additional software libraries (outlined in the linked tutorial)
 
-After you’ve saved your dockerfile, navigate to its location.  Ensure the bert_classifier.py, train.csv, test.csv, valid.csv, and requirements.txt files are all in the same directory as the dockerfile. Now run the following command to build the container:
+.. note::
+    Docker Desktop on Mac/Windows can build for architectures different than the one they are running on by default, but Linux requires some additional software libraries (outlined in the linked tutorial)
+
+After you’ve saved your dockerfile, navigate to its location in your **terminal**.  Ensure the bert_classifier.py, train.csv, test.csv, valid.csv, and requirements.txt files are all in the same directory as the dockerfile. Now run the following command to build the container:
 
 ::
 
@@ -190,7 +190,7 @@ Example:
 
 **Optional: Test container locally**
 
-If you want to test out the container locally on a system with gpus you can run
+If you want to test out the container locally on a system with gpus, you can run:
 
 ::
 
