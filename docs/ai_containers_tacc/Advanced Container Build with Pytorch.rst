@@ -10,9 +10,10 @@ We will be covering:
     3. Building a docker container on top of this image with python, pytorch, and other packages you need.
     4. Uploading your container to dockerhub, downloading it onto Frontera, and converting it to an Apptainer for use on TACC systems.
 
-
 BERT classifier code requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
     - We want to run the code contained in the bert-classifier.py script.  This code requires:
     - CUDA 11.0
     - Python 10

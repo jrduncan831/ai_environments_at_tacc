@@ -1,18 +1,16 @@
-Containers Tutorial
-===================
+Containers with Pytorch
+=======================
 
-.. image:: \ai_environments_at_tacc\docs\getting_starting_section\images\Docker_logo.png
+.. image:: images/Docker_logo.png
     :alt: Docker Logo
 
 Docker is a platform for developing, shipping, and running applications inside **containers**. 
-
-Docker is a platform for developing, running, and distributing applications inside of containers.
 
 A **software container** is a lightweight, portable package that includes everything an application needs to run—including code, libraries, dependencies, and system settings. 
 
 It ensures the app works the same across different environments, without conflicts. Although often compared to virtual machines because of their structure, because they **share the host OS**, they are **faster and more efficient**.
 
-This containerization guide will focus specifically on the AI/ML applications of containerization with Docker. For a more in-depth guide, view the `official TACC containers guide`<https://containers-at-tacc.readthedocs.io/en/latest/>_.
+This containerization guide will focus specifically on the AI/ML applications of containerization with Docker. For a more in-depth guide, view the `official TACC containers guide <https://containers-at-tacc.readthedocs.io/en/latest/>`_.
 
 
 What is a Docker? What are Images?
@@ -23,7 +21,7 @@ A **Docker image** is a pre-configured package that contains everything needed t
 
 Apptainers vs Containers
 ------------------------
-`Apptainer`<https://containers-at-tacc.readthedocs.io/en/latest/singularity/01.singularity_basics.html>_ (formerly *Singularity*) is a containerization platform designed specifically for high-performance computing (HPC) environments, offering a solution optimized for scientific research and large-scale data processing. 
+`Apptainer <https://containers-at-tacc.readthedocs.io/en/latest/singularity/01.singularity_basics.html>`_ (formerly *Singularity*) is a containerization platform designed specifically for high-performance computing (HPC) environments, offering a solution optimized for scientific research and large-scale data processing. 
 
 Unlike general containers like Docker, which require root privileges and are commonly used for development and cloud-based applications, Apptainer is built to run efficiently on shared systems such as TACC’s supercomputers. 
 
@@ -32,13 +30,15 @@ It provides portability, reproducibility, and seamless integration with HPC job 
 In this tutorial, we follow the workflow highlighted in `TACC's container tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/01.singularity_basics.html>`_ . 
 
 **We will:**
-- Use Docker to develop containers locally
-- Push (upload) our container to Docker hub
-- Use *apptainer* to run the container on a TACC HPC system
+#. Use Docker to develop containers locally
+#. Push (upload) our container to Docker hub
+#. Use *apptainer* to run the container on a TACC HPC system
 
-Setting GPU enabled PyTorch Container at TACC
----------------------------------------------
-Below, we will walk you through the steps for setting up a GPU-enabled Pytorch container at TACC to run the **Multigpu_Torchrun.py** testing script from the `How to Create a Virtual Environment`<ai_environments_at_tacc\docs\getting_starting_section\How to Create and Activate a Virtual Environment.rst>_ and `How to Install Conda`<ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>_ tutorials.
+Note: we can skip steps 1 and 2 above if a base container exists with all dependencies for our application, as you will see highlighted in the demo below. 
+
+Runnining GPU enabled PyTorch Containers at TACC
+------------------------------------------------
+Below, we will walk you through the steps for setting up a GPU-enabled Pytorch container at TACC to run the **Multigpu_Torchrun.py** testing script from the `How to Create a Virtual Environment <ai_environments_at_tacc\docs\getting_starting_section\How to Create and Activate a Virtual Environment.rst>`_ and `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_ tutorials.
 
 For the purposes of this tutorial, we will be using the **Frontera** system.
 
@@ -50,13 +50,24 @@ For the purposes of this tutorial, we will be using the **Frontera** system.
 
 **Step 2: Move to your scratch directory**
 
-.. note::
-    We have used the $WORK directory thus far to run tasks. Here, we use $SCRATCH, since setting up Pytorch and CUDA are intensive I/O tasks. 
+::
+
+    cd $SCRATCH 
+    
+You can check your location by typing 
+
+::
+
+    pwd
+
 
 The scratch directory will look different for everyone, but generally, the working directory for your scratch partition will look as follows:
 ::
 
     /scratch1/<group number>/<username>
+
+.. note::
+    We have used the $WORK directory thus far to run tasks. Here, we use $SCRATCH, since setting up Pytorch and CUDA are intensive I/O tasks. 
 
 **Step 3: Request a Node**
 
@@ -92,6 +103,7 @@ You should see:
     3) git/2.24.1     6) cmake/3.24.2    9) TACC
 
 To load the apptainer module, run:
+::
 
     module load tacc-apptainer
 
@@ -117,8 +129,8 @@ First, we will download some test data to run a simple ML task on. Clone the exa
 
 **Step 5. Pull a Prebuilt PyTorch Docker Image**
 
-Instead of creating our own Dockerfile that is GPU-enabled, we can use an official PyTorch image from `DockerHub`<https://hub.docker.com/>_ to make the process of setting up a container for GPU use easier for us.
-For more detailed instructions on how to build and upload your own Docker image from scratch, see `TACC's official Docker tutorial.`<https://hub.docker.com/>_
+Instead of creating our own Dockerfile that is GPU-enabled, we can use an official PyTorch image from `DockerHub <https://hub.docker.com/>`_ to make the process of setting up a container for GPU use easier for us.
+For more detailed instructions on how to build and upload your own Docker image from scratch, see `TACC's official Docker tutorial. <https://hub.docker.com/>`_
 
 .. note::
 
@@ -156,6 +168,8 @@ Conclusion
 You have now successfully pulled a PyTorch image from Docker Hub, mounted local directories into the container, and run a Python script within an Apptainer container.
 
 Again for a more detailed introduction to containers please see the `Containers at TACC tutorial <https://containers-at-tacc.readthedocs.io/en/latest/index.html>`_.
+
+You have also now completed the first section of this tutorial.  In the next section, we will expand on building AI/ML containers at TACC by building a customized Dockerfile for a specific applicaiton using BERT. 
 
 
 
