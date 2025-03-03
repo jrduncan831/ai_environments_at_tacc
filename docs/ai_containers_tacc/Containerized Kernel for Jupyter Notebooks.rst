@@ -23,7 +23,9 @@ Now that you have opened jupyter, you can launch a notebook with the default Pyt
 
 What are Jupyter Kernels?
 -------------------------
-When we launch a jupyter notebook, we have the ability to select what **kernel** (program that executes code) we use. The ability to select different kernels allows you to execute code in different languages and environments for different applications.  These kernels could be a python virtual environment or a container you have set up. In the tutorial below, we will walk you through how to set up a containerized jupyter kernel. By doing this you will be able to select a kernel that executes code in different containers you have built. 
+When we launch a jupyter notebook, we have the ability to select what **kernel** (program that executes code) we use. The ability to select different kernels allows you to execute code in different languages and environments for different applications.  These kernels could be a python virtual environment or a container you have set up. 
+
+In the tutorial below, we will walk you through how to set up a containerized jupyter kernel. By doing this you will be able to select a kernel that executes code in different containers you have built. 
 
 Containerized Kernels at TACC
 -----------------------------

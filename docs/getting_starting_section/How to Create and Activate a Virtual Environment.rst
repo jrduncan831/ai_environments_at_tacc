@@ -77,7 +77,9 @@ Let's try **testing this Virtual environment by running a script.**
 Testing our Virtual Environment with Multigpu_Torchrun.py
 ---------------------------------------------------------
 **Multigpu_Torchrun.py** is a script from the official Pytorch repository that leverages **distributed data parallel (DDP)** to split ML training tasks across GPUs,
-allowing for a more efficient runtime. The Multigpu_Torchrun.py script can be found in the Github repository below:
+allowing for a more efficient runtime. 
+
+The Multigpu_Torchrun.py script can be found in the Github repository below:
 
 `https://github.com/pytorch/examples <https://github.com/pytorch/examples>`_
 

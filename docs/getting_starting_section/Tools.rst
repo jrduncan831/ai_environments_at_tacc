@@ -34,8 +34,9 @@ Conda
 -----
 
 .. image:: images/Conda_logo.svg
+   :align: center
 
-*`Image source: <https://github.com/conda <https://github.com/conda>`_*
+Image source: `github.com/conda <https://github.com/conda>`_
 
 Conda is a tool for managing and sharing packages and environments, making it easy to install dependencies and keep projects isolated. It is especially favored by data scientists and ML experts thanks to how it seamlessly handles library installation and environment creation.
 

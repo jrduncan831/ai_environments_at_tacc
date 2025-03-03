@@ -82,7 +82,7 @@ Let's cd into **our specific work directory** with the following command:
 
     cd/work/#####/<username>
 
-Where the numbers ##### will be your group number, and the username your TACC username.
+Where the numbers ##### will be your group number, and the <username> your TACC username.
 
 When you get to your directory, you’ll see that you have multiple partitions available to you depending on the system you’re using:
 

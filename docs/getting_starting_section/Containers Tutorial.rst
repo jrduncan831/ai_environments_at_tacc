@@ -30,15 +30,16 @@ It provides portability, reproducibility, and seamless integration with HPC job 
 In this tutorial, we follow the workflow highlighted in `TACC's container tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/01.singularity_basics.html>`_ . 
 
 **We will:**
-#. Use Docker to develop containers locally
-#. Push (upload) our container to Docker hub
-#. Use *apptainer* to run the container on a TACC HPC system
+
+    #. Use Docker to develop containers locally
+    #. Push (upload) our container to Docker hub
+    #. Use *apptainer* to run the container on a TACC HPC system
 
 Note: we can skip steps 1 and 2 above if a base container exists with all dependencies for our application, as you will see highlighted in the demo below. 
 
 Runnining GPU enabled PyTorch Containers at TACC
 ------------------------------------------------
-Below, we will walk you through the steps for setting up a GPU-enabled Pytorch container at TACC to run the **Multigpu_Torchrun.py** testing script from the `How to Create a Virtual Environment <ai_environments_at_tacc\docs\getting_starting_section\How to Create and Activate a Virtual Environment.rst>`_ and `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_ tutorials.
+Below, we will walk you through the steps for setting up a GPU-enabled Pytorch container at TACC to run the **Multigpu_Torchrun.py** testing script from the `How to Create a Virtual Environment <https://aiml-environments-at-tacc.readthedocs.io/en/latest/getting_starting_section/How%20to%20Create%20and%20Activate%20a%20Virtual%20Environment.html>`_ and `How to Install Conda <https://aiml-environments-at-tacc.readthedocs.io/en/latest/getting_starting_section/How%20to%20Install%20Conda.html>`_ tutorials.
 
 For the purposes of this tutorial, we will be using the **Frontera** system.
 

@@ -265,4 +265,4 @@ Once you are inside the the container with an interactive shell, you can run the
 
     python3 /code/bert_classifier.py
 
-Congrats! You have now succesfully built a GPU aware Pytorch container for a specific BERT application on Frontera.  In the next tutorial, we will talk about how you can set up this container as a kernel of a jupyter notebooks on TACC's system. 
+Congratulations! You have successfully **built and deployed a GPU-accelerated PyTorch container** for a **BERT classification model on TACC**. In the next tutorial, we will explore how to integrate this container as a Jupyter Notebook kernel on TACC’s system.
