@@ -2,19 +2,22 @@ Advanced Container Build with Pytorch
 =====================================
 
 In this tutorial, we will build off content from TACCs container tutorial by detailing how to build the **GPU enabled container** for a BERT classifier python script.  This tutorial is an extension of `TACCs GPU aware containers tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/03.mpi_and_gpus.html#building-a-gpu-aware-container>`_.
+Prerequisite knowledge about the Docker platform and containerization is necessary to follow along with this tutorial, which can be found on the `TACC Containers Tutorial`<https://containers-at-tacc.readthedocs.io/en/latest/index.html>_ website.
 
-We will be covering:
+We will begin by:
+- **Determining the necessary dependencies**, including the required versions of CUDA, PyTorch, Python, and additional Python packages. 
+Next, we will:
+- **Select an appropriate NVIDIA CUDA base image** that aligns with our chosen CUDA version, considering the differences between base, runtime, and development images. We will then install PyTorch using the appropriate installation command to ensure compatibility with our environment. 
+- Use this base image to **create a Dockerfile** that layers the selected CUDA image with a Python environment, installs PyTorch, and includes all additional dependencies specified in a requirements.txt file. 
+- **Upload the container to Docker Hub**, **transfer it to TACC systems like Frontera**, and **convert it into an Apptainer image** for seamless integration.
 
-    1. Determining which CUDA, pytorch, python version, and which additional python packages you need.
-    2. Retrieving a docker image with the CUDA version you want.
-    3. Building a docker container on top of this image with python, pytorch, and other packages you need.
-    4. Uploading your container to dockerhub, downloading it onto Frontera, and converting it to an Apptainer for use on TACC systems.
+By the end of this tutorial, we will have a fully customized, GPU-accelerated container optimized for running BERT classification tasks on TACC's high-performance computing resources.
+
 
 BERT classifier code requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-    - We want to run the code contained in the bert-classifier.py script.  This code requires:
+    - We want to run the code contained in the bert-classifier.py script, which requires:
     - CUDA 11.0
     - Python 10
     - pytorch 1.7.1
@@ -40,13 +43,28 @@ Running a BERT model will also require the following data files:
 
 These are the **training**, **testing**, and **validation** data respectively.
 
-Selecting a CUDA docker image to build from
--------------------------------------------
-Once you know which version of CUDA you need, you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three varieties: base, runtime, and development.
+Below, we will walk you through some of the components you will need on your Dockerfile.
 
-#. Step 1. base : includes the CUDA runtime (cudart)
-#. Step 2. runtime : Builds on the base and includes the CUDA math libraries and nccl. A runtime image that also includes cuDNN is available.
-#. Step 3. devel : Builds on the runtime and includes headers, development tools for building CUDA images. These images are particularly useful for multi-stage builds
+Part 1: Selecting a CUDA docker image to build from
+---------------------------------------------------
+Once you know which version of CUDA you need (11.0 in this case), you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three varieties: base, runtime, and development.
+
+#. Base
+- The **base** image is the most minimal CUDA image, only containing the CUDA runtime (cudrt) and necessary dependencies.
+- Best suited for running precompiled CUDA applications or minimal environments.
+#. Runtime 
+- The **runtime** image is one step above the base image, and includes the CUDA runtime and necessary libraries (e.g., cuBLAS, cuDNN if specified).
+- Ideal for deploying applications that need CUDA support but do not require compilation.
+#. Development
+- The **development** image is built on top of the runtime image and includes the CUDA compiler (nvcc), development headers, and other necessary tools for building and compiling multi-stage CUDA applications.
+- Best for development environments where CUDA code needs to be compiled inside the container.
+
+**Step 1. Declare the CUDA base image**
+When you create a Dockerfile, the first line specifies the CUDA base image:
+
+:: 
+
+    FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
 
 The image tag syntax is:
 
@@ -60,10 +78,37 @@ As an example, the CUDA 11.0.3 runtime image with cuDNN has the tag:
 
     11.0.3-cudnn8-runtime
 
+This tells Docker to pull the nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04 image from Docker Hub when the container is built.
+This image will automatically be downloaded during the build. When you run the **docker build** command:
 
-Pytorch install command
------------------------
-The pytorch website provides a useful app here that will tell you the correct pip install command for the latest or the nightly build of pytorch for various platforms and OS’s.  The “Compute Platform” row at the above link will tell you which CUDA versions are compatible with the stable and nightly pytorch versions.  Explanations of how to install older versions of pytorch can be found on their website here. For the latest stable pytorch release their website recommends you to use python 3.9-3.12.
+::
+    docker build --platform linux/amd64 -t [username]/bert-classifier:0.0.1 .
+
+- If the image is not already on your machine, Docker will download it from Docker Hub.
+- If the image is already available, Docker will use the cached version on your machine.
+
+**Checking to See if the Image is Uploaded**
+After building, you can check whether the CUDA libraries are properly installed inside the container by running:
+
+::
+
+    docker run --gpus all --rm -it [username]/bert-classifier:0.0.1 bash
+
+Then, inside the container, run:
+
+::
+
+    nvcc --version
+
+Your version should be printed to screen.
+
+
+
+Command for Installing Pytorch
+------------------------------
+We also need Pytorch to be present in our Dockerfile to run BERT.
+
+The PyTorch website provides a `tool`<https://pytorch.org/get-started/locally/>_ called **Compute Platform** to generate the correct installation command for different environments. Since we need PyTorch 1.7.1 with CUDA 11.0, we will use the following command:
 
 The pytorch version we want can be found in the “older versions” section of the website.  Scrolling down to v1.7.1 look for the “wheel” section that provides the pip install command for Linux/Windows for CUDA 11.  The command is:
 
@@ -71,10 +116,25 @@ The pytorch version we want can be found in the “older versions” section of 
 
     pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 
-Writing a Dockerfile
---------------------
-Now we can put everything together and build our container. The general process is that we use the FROM command to start with the nvidia CUDA container, then a series of RUN commands to install python and then perform pip installs of the desired python packages. Finally, we will copy in our script and data files into the container.
+**This command will be run automatically when we place it in the Dockerfile.**
 
+
+
+Step 3: Writing a Dockerfile
+----------------------------
+A Dockerfile **automates** the container creation process. Now that we have our components, we can assemble them and use them to build our container. 
+The general pipeline for building a Dockerfile is to use the FROM command to start with the Nvidia CUDA container, then place a series of RUN commands below it to install Python and perform pip installs of the desired Python packages.
+Then, we can copy our script and data (test.csv, train.csv, and valid,csv) into our file.
+
+Below is an example Dockerfile that:
+
+- Uses an NVIDIA CUDA runtime base image.
+- Installs Python and Pip.
+- Installs PyTorch and required dependencies.
+- Copies the BERT classifier script and dataset into the container.
+
+Example Dockerfile
+------------------
 ::
 
     FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
@@ -106,8 +166,10 @@ Now we can put everything together and build our container. The general process 
     RUN chmod +r /code/*.csv
 
 Building a docker image from the Dockerfile
+-------------------------------------------
 When building the container, we have to build it for the specific computer architecture we plan to run the container on. 
-In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64.  
+In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64. Specific architectures can be found `here.`<https://tacc.utexas.edu/systems/all/>_
+
 A tutorial of how to automatically make builds for all possible architectures simultaneously is available `here <https://containers-at-tacc.readthedocs.io/en/latest/advanced/02.multiarchitecture.html>`_.  
 Also note, Docker Desktop on Mac/Windows can build for architectures different than the one they are running on by default, but Linux requires some additional software libraries (outlined in the linked tutorial)
 
