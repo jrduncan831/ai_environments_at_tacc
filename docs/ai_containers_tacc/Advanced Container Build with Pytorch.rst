@@ -24,6 +24,8 @@ BERT classifier code requirements
 
 Additional required python packages listed in requirements.txt are:
 
+// Go into more depth about each section
+
 ::
 
     seaborn == 0.11.2
@@ -49,13 +51,13 @@ Part 1: Selecting a CUDA docker image to build from
 ---------------------------------------------------
 Once you know which version of CUDA you need (11.0 in this case), you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three varieties: base, runtime, and development.
 
-#. Base
+**Base**
 - The **base** image is the most minimal CUDA image, only containing the CUDA runtime (cudrt) and necessary dependencies.
 - Best suited for running precompiled CUDA applications or minimal environments.
-#. Runtime 
+**Runtime** 
 - The **runtime** image is one step above the base image, and includes the CUDA runtime and necessary libraries (e.g., cuBLAS, cuDNN if specified).
 - Ideal for deploying applications that need CUDA support but do not require compilation.
-#. Development
+**Development**
 - The **development** image is built on top of the runtime image and includes the CUDA compiler (nvcc), development headers, and other necessary tools for building and compiling multi-stage CUDA applications.
 - Best for development environments where CUDA code needs to be compiled inside the container.
 
@@ -84,8 +86,8 @@ This image will automatically be downloaded during the build. When you run the *
 ::
     docker build --platform linux/amd64 -t [username]/bert-classifier:0.0.1 .
 
-- If the image is not already on your machine, Docker will download it from Docker Hub.
-- If the image is already available, Docker will use the cached version on your machine.
+- If the image is not already on your machine, Docker will download it from **Docker Hub**.
+- If the image is already available, Docker will use the **cached** version on your machine.
 
 **Checking to See if the Image is Uploaded**
 After building, you can check whether the CUDA libraries are properly installed inside the container by running:
@@ -165,10 +167,11 @@ Example Dockerfile
     RUN chmod +rx /code/bert_classifier.py
     RUN chmod +r /code/*.csv
 
+
 Building a docker image from the Dockerfile
 -------------------------------------------
 When building the container, we have to build it for the specific computer architecture we plan to run the container on. 
-In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64. Specific architectures can be found `here.`<https://tacc.utexas.edu/systems/all/>_
+In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64. Specific architectures for TACC systems can be found `here.`<https://tacc.utexas.edu/systems/all/>_
 
 A tutorial of how to automatically make builds for all possible architectures simultaneously is available `here <https://containers-at-tacc.readthedocs.io/en/latest/advanced/02.multiarchitecture.html>`_.  
 Also note, Docker Desktop on Mac/Windows can build for architectures different than the one they are running on by default, but Linux requires some additional software libraries (outlined in the linked tutorial)
@@ -218,7 +221,7 @@ Example:
 Installing container on TACC systems
 ------------------------------------
 
-Now that you have a container on dockerhub, using it on TACC systems is straightforward. You don’t need an rtx node to run apptainer, but since most of our ML software requires GPUs, I find it easier to use an rtx node so I can test the container immediately
+Now that you have a container on dockerhub, using it on TACC systems is straightforward. You don’t need an rtx node to run apptainer, but since most of our ML software requires GPUs, it is typically easier to use an rtx node so we can test our container immediately:
 
 Grab a single rtx node on Frontera:
 
@@ -262,4 +265,4 @@ Once you are inside the the container with an interactive shell, you can run the
 
     python3 /code/bert_classifier.py
 
-You have now succesfully built a GPU aware Pytorch container for a specific BERT application on Frontera.  In the next tutorial, we will talk about how you can set up this container as a kernel of a jupyter notebooks on TACC's system. 
+Congrats! You have now succesfully built a GPU aware Pytorch container for a specific BERT application on Frontera.  In the next tutorial, we will talk about how you can set up this container as a kernel of a jupyter notebooks on TACC's system. 
