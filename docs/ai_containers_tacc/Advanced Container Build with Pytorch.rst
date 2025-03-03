@@ -45,8 +45,8 @@ These are the **training**, **testing**, and **validation** data respectively.
 
 Below, we will walk you through some of the components you will need on your Dockerfile.
 
-Part 1: Selecting a CUDA docker image to build from
----------------------------------------------------
+Selecting a CUDA docker image to build from
+-------------------------------------------
 Once you know which version of CUDA you need (11.0 in this case), you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three varieties: base, runtime, and development.
 
 * **Base**
@@ -93,8 +93,8 @@ The pytorch version we want can be found in the “older versions” section of 
     pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 
 
-Step 3: Writing a Dockerfile
-----------------------------
+Writing a Dockerfile
+--------------------
 A Dockerfile **automates** the container creation process. Now that we have our components, we can assemble them and use them to build our container. 
 The general pipeline for building a Dockerfile is to use the FROM command to start with the Nvidia CUDA container, then place a series of RUN commands below it to install Python and perform pip installs of the desired Python packages.
 Then, we can copy our script and data (test.csv, train.csv, and valid,csv) into our file.
