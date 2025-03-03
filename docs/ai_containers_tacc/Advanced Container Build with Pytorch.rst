@@ -79,31 +79,6 @@ As an example, the CUDA 11.0.3 runtime image with cuDNN has the tag:
     11.0.3-cudnn8-runtime
 
 This tells Docker to pull the nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04 image from Docker Hub when the container is built.
-This image will automatically be downloaded during the build. When you run the **docker build** command:
-
-::
-
-    docker build --platform linux/amd64 -t [username]/bert-classifier:0.0.1 .
-
-- If the image is not already on your machine, Docker will download it from **Docker Hub**.
-- If the image is already available, Docker will use the **cached** version on your machine.
-
-**Checking to See if the Image is Uploaded**
-After building, you can check whether the CUDA libraries are properly installed inside the container by running:
-
-::
-
-    docker run --gpus all --rm -it [username]/bert-classifier:0.0.1 bash
-
-Then, inside the container, run:
-
-::
-
-    nvcc --version
-
-Your version should be printed to screen.
-
-
 
 Command for Installing Pytorch
 ------------------------------
@@ -116,9 +91,6 @@ The pytorch version we want can be found in the “older versions” section of 
 ::
 
     pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
-
-**This command will be run automatically when we place it in the Dockerfile.**
-
 
 
 Step 3: Writing a Dockerfile
