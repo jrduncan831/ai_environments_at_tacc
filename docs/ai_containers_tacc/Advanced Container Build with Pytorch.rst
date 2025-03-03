@@ -59,7 +59,7 @@ Once you know which version of CUDA you need (11.0 in this case), you can find a
     * The **development** image is built on top of the runtime image and includes the CUDA compiler (nvcc), development headers, and other necessary tools for building and compiling multi-stage CUDA applications.
     * Best for development environments where CUDA code needs to be compiled inside the container.
 
-**Step 1. Declare the CUDA base image**
+**Declare the CUDA base image**
 When you create a Dockerfile, the first line specifies the CUDA base image:
 
 :: 
