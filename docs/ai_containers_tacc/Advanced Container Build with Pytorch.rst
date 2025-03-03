@@ -1,15 +1,15 @@
 Advanced Container Build with Pytorch
 =====================================
 
-In this tutorial, we will build off content from TACCs container tutorial by detailing how to build the GPU enabled container for a BERT classifier python script.  This tutorial is specifically an extension of `TACCs GPU aware containers tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/03.mpi_and_gpus.html#building-a-gpu-aware-container>`_.
+In this tutorial, we will build off content from TACCs container tutorial by detailing how to build the **GPU enabled container** for a BERT classifier python script.  This tutorial is an extension of `TACCs GPU aware containers tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/03.mpi_and_gpus.html#building-a-gpu-aware-container>`_.
 
+We will be covering:
 
-Outline
-~~~~~~~
-    1. Figure out which CUDA, pytorch, python version, and which additional python packages you need
-    2. Get a docker image with the CUDA version you want
-    3. Build a docker container on top of this image with the python, pytorch, and other packages you need
-    4. Upload container to dockerhub and then download it onto frontera and convert it to an apptainer container
+    1. Determining which CUDA, pytorch, python version, and which additional python packages you need.
+    2. Retrieving a docker image with the CUDA version you want.
+    3. Building a docker container on top of this image with python, pytorch, and other packages you need.
+    4. Uploading your container to dockerhub, downloading it onto Frontera, and converting it to an Apptainer for use on TACC systems.
+
 
 BERT classifier code requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,7 +18,7 @@ BERT classifier code requirements
     - Python 10
     - pytorch 1.7.1
 
-Additional required python packages listed in requirements.txt
+Additional required python packages listed in requirements.txt are:
 
 ::
 
@@ -31,14 +31,17 @@ Additional required python packages listed in requirements.txt
 
 =======================
 
-It also requires the following data files:
+Running a BERT model will also require the following data files:
 
 - `train.csv <https://github.com/eriksf/bert-classifier/raw/main/train.csv>`_
 - `test.csv <https://github.com/eriksf/bert-classifier/raw/main/test.csv>`_ 
 - `valid.csv <https://raw.githubusercontent.com/eriksf/bert-classifier/main/valid.csv>`_
 
+These are the **training**, **testing**, and **validation** data respectively.
+
 Selecting a CUDA docker image to build from
-Once you know which version of CUDA you need, you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three flavors, base, runtime, and development:
+-------------------------------------------
+Once you know which version of CUDA you need, you can find a docker image from `nvidia’s dockerhub page <https://hub.docker.com/r/nvidia/cuda>`_ that has the correct CUDA version.  Their CUDA images come in three varieties: base, runtime, and development.
 
 #. Step 1. base : includes the CUDA runtime (cudart)
 #. Step 2. runtime : Builds on the base and includes the CUDA math libraries and nccl. A runtime image that also includes cuDNN is available.

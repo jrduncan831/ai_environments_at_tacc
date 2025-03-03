@@ -1,6 +1,6 @@
 Containers at TACC
 ==================
-Now that we’ve walked you through connecting to our systems, what virtual environments are and how to use them, and how to create them with Conda and Docker, we can move on to more advanced topics in containerization that are relevant to TACC systems specifically.
+Now that we’ve walked you through **connecting to our systems**, what **virtual environments** are and **how to use them**, and **how to create them with Conda and Docker**, we can move on to more advanced topics in containerization that are relevant to TACC systems specifically.
 
 In this section, two tutorials are outlined: **Advanced Container Build with Pytorch** and **Containerized Kernel for Jupyter Notebooks**. 
 
