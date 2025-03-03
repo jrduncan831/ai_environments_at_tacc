@@ -112,8 +112,7 @@ Run the following command in your terminal:
     curl -LO https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 
 .. note::
-    This download pulls it directly from the github link for the Linux architecture, which is what our systems use. If you follow this tutorial to install it on a local machine, you will need to change the URL to the installation file containing Miniforge for your system, which can be found in the same repo.
-    The repository containing all installation packages for Miniforge can be found here:
+    This download pulls it directly from the github link for the Linux architecture, which is what our systems use. If you follow this tutorial to install it on a local machine, you will need to change the URL to the installation file containing Miniforge for your system, which can be found in the same repo:
     https://github.com/conda-forge/miniforge/releases
 
 Now make the execution script executable with **chmod**, which modifies file permissions so that we can execute (**+x**) the file:
