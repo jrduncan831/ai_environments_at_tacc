@@ -1,4 +1,4 @@
-Welcome to AI/ML Environments @ TACC 
+Overview of AI/ML Environments at TACC 
 ====================================
 
 Selecting the right environment management tool is crucial for AI/ML projects which are typically built on top of a complex network of frequently updating software dependencies. There are several software tools that you can use to accomplish this including conda, virtual environments, and containers.   
