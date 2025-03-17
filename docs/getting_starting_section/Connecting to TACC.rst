@@ -61,8 +61,6 @@ $WORK is the **highest** directory on a global shared file system between severa
 *image source*: `https://docs.tacc.utexas.edu/hpc/lonestar6/#files <https://docs.tacc.utexas.edu/hpc/lonestar6/#files>`_
 
 .. note::
-    Because work is such a large data storage shared between so many users, the following problems may emerge:
-
     * **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
     * **Offload Files to $SCRATCH** - One method of solving this is to run high I/O operations in the $SCRATCH directory, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.
     * **Striping Large Files** - The $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
@@ -75,7 +73,7 @@ Additional information about running Conda on TACC systems can be found in `How 
 
 Requesting a Node to Work On
 ----------------------------
-In a supercomputer, a node is usually a single computer or server in a cluster. A node on one of the TACC systems refers to an individual processor. Most of our systems are composed of **compute** nodes (for running tasks) and **login** nodes (for directing users and tasks towards the compute nodes).
+A node on one of the TACC systems refers to an individual CPU paired with some memory and local storage. Most of our systems are composed of **compute** nodes (for running tasks) and **login** nodes (for directing users and tasks towards the compute nodes).
 
 In a typical HPC system, there are many more compute nodes than login nodes:
 
@@ -84,18 +82,18 @@ In a typical HPC system, there are many more compute nodes than login nodes:
 
 *image source*: `ekatsevi.github.io <https://ekatsevi.github.io/statistical-computing/hpc-basics.html#:~:text=Login%20nodes%20are%20like%20a,the%20workhorses%20of%20the%20HPC>`_
 
-**It is important to avoid running tasks on the login nodes**, because this is where users will be waiting to queue their tasks. By running tasks on these login nodes, you’ll be taking a lot of computational resources away from users who are logging onto the system, and can affect the amount of time they will be waiting in the queue.
+**It is important to avoid running tasks on the login nodes** because login nodes are shared between multiple users. If you run tasks on login nodes, you will degrade the ability of the node to handle other users logging onto the system, and can affect the amount of time they will be waiting in the queue.
 
-Each system has different kinds of nodes with different specifications for each, so if you want to understand how to fully utilize each system, you can find their documentation `here <https://tacc.utexas.edu/systems/all/>`__.
+Each system has different kinds of nodes with different specifications for each, you can find their documentation `here <https://tacc.utexas.edu/systems/all/>`__.
 
 Requesting a Specific Node (GPU, CPU, etc.)
 -------------------------------------------
 
 **Why request a specific kind of node?**
-Many TACC systems have both CPU-only nodes and CPU+GPU nodes available to use. The GPU nodes tend to be in higher demand and therefore the queue times for getting access to a node are longer.  Therefore, if your code does not need a GPU, you will wait less time for your job to start if you request a CPU-only node.
+Many TACC systems have both CPU-only nodes and CPU+GPU nodes available to use. The GPU nodes tend to be in higher demand and therefore the queue times for getting access to a node are longer.  If your code does not need a GPU, you will wait less time for your job to start if you request a CPU-only node.
 
 
-Through the TACC Analysis Portal (TAP)
+Connect using Jupyter Notebooks with the TACC Analysis Portal (TAP)
 --------------------------------------
 There are multiple ways to request a node on the TACC systems. The easiest method of doing so would be from the tacc analysis portal if you are using Frontera, Stampede3, Lone Star 6, or Vista: https://tap.tacc.utexas.edu/
 
@@ -117,9 +115,9 @@ You can also choose the amount of nodes you may need for your task, as well as t
 
 Requesting a Node Through idev
 ------------------------------
-Another way to do this is through idev, the interactive development environment for TACC systems: https://docs.tacc.utexas.edu/software/idev/
+Another way to get access to a compute node is using the command line command idev, the interactive development environment for TACC systems: https://docs.tacc.utexas.edu/software/idev/
 
-The idev command both handles submitting the request for a compute node and automatically creates an interactive terminal connection to your requested node allowing you to execute scripts and manage files with real-time feedback. 
+The idev command both handles submitting the request for a compute node and automatically creates an interactive terminal connection to your requested node allowing you to execute scripts and manage files with real-time feedback directly in the terminal. 
 
 Extra information
 -----------------
