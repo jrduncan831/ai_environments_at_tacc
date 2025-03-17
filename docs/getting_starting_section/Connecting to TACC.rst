@@ -64,8 +64,8 @@ $WORK is the **highest** directory on a global shared file system between severa
     Because work is such a large data storage shared between so many users, the following problems may emerge:
 
     * **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
-    * **Offload Files to $SCRATCH** One method of solving this is to run high I/O operations in the $SCRATCH directory, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
-    * **Striping Large Files** - the $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
+    * **Offload Files to $SCRATCH** - One method of solving this is to run high I/O operations in the $SCRATCH directory, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
+    * **Striping Large Files** - The $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
 
 Issues Hosting Conda Environments on $WORK
 --------------------------------------------
@@ -92,15 +92,16 @@ Requesting a Specific Node (GPU, CPU, etc.)
 -------------------------------------------
 
 **Why request a specific kind of node?**
-Many TACC systems have both CPU and GPU nodes available to use. Matching your workload to the required hardware can help optimize compute time and take advantage of specific resources that your software might run on exclusively. (ex: how cuda exclusively runs on GPU hardware).
+Many TACC systems have both CPU-only nodes and CPU+GPU nodes available to use. The GPU nodes tend to be in higher demand and therefore the queue times for getting access to a node are longer.  Therefore, if your code does not need a GPU, you will wait less time for your job to start if you request a CPU-only node.
+
 
 Through the TACC Analysis Portal (TAP)
 --------------------------------------
 There are multiple ways to request a node on the TACC systems. The easiest method of doing so would be from the tacc analysis portal if you are using Frontera, Stampede3, Lone Star 6, or Vista: https://tap.tacc.utexas.edu/
 
-Ensure you have a TACC user account before attempting to use the analysis portal. Steps to register for one can be found here.
+Ensure you have a TACC user account before attempting to use the analysis portal.
 
-When you have successfully created and logged into your account, when you click on the tap.tacc.utexas.edu link, you should end up here:
+When you have successfully logged into the analysis portal you should end up here:
 
 .. image:: images/tap1.png
 
@@ -108,7 +109,7 @@ We will select **Frontera** as the system, **DCV remote desktop** as our applica
 
 .. image:: images/tap2.png
 
-The **queue** option will determine which type of node you are on. Here you can see what queues are for development and which are for GPUs. This queue option will differ depending on the system you are using and the nodes that are available on that system.
+The **queue** option will determine which type of node you are requesting. Note that the node options listed will differ depending on the system you are using.
 
 You can also choose the amount of nodes you may need for your task, as well as the time limit your job will have:
 
@@ -118,7 +119,7 @@ Requesting a Node Through idev
 ------------------------------
 Another way to do this is through idev, the interactive development environment for TACC systems: https://docs.tacc.utexas.edu/software/idev/
 
-Idev creates a software environment that allows you to work on code and submit jobs in real-time. HPC systems are best-suited for running large jobs, but are ill-suited for the debugging and deployment work software development requires. The idev app allows users who want to quickly compile and run simple jobs on compute nodes a way to do this.
+The idev command both handles submitting the request for a compute node and automatically creates an interactive terminal connection to your requested node allowing you to execute scripts and manage files with real-time feedback. 
 
 Extra information
 -----------------
