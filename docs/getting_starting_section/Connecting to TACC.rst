@@ -1,17 +1,12 @@
 Connecting to TACC
 ==================
 
-The tutorials hosted on this website are designed for running ML tasks on TACC HPC systems specifically. A detailed outline for accessing our systems is present below.
+In this section will walk through the layout of TACC's computing resources and demonstrate how to connect to TACC systems using the ssh command in an interactive temrinal session as well as connect via a jupyter notebook.
 
 Prerequisites
 -------------
 1. **TACC Account**  
     - If you haven't yet, create a TACC account `here <https://tacc.utexas.edu/portal/login?from=/portal/>`__.  
-
-2. **SSH Client**  
-    - **Linux/macOS**: Use the built-in terminal.  
-    - **Windows**: Use Windows Terminal.
-    - **Misc.**: VS Code, etc.
 
 Connecting to TACC
 ------------------
@@ -66,7 +61,7 @@ $WORK is the **highest** directory on a global shared file system between severa
 *image source*: `https://docs.tacc.utexas.edu/hpc/lonestar6/#files <https://docs.tacc.utexas.edu/hpc/lonestar6/#files>`_
 
 .. note::
-    Because work is such a large environment shared between so many users, the following problems may emerge:
+    Because work is such a large data storage shared between so many users, the following problems may emerge:
 
     * **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
     * *One method of solving this is to **run high I/O operations in the $SCRATCH directory**, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
@@ -74,8 +69,6 @@ $WORK is the **highest** directory on a global shared file system between severa
 
 Working with Conda and Other ML Environments
 --------------------------------------------
-ML/AI tasks on TACC systems can require **heavy resource utilization** (for example, package installations and lookups, environment creation, etc.), and may lead to contention with other users. 
-
 Additionally, since $WORK utilizes Lustre striping, performance is optimized for large files but can be inefficient for Conda environments, which contain thousands of small files.
 
 Additional information about running Conda on TACC systems can be found in `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_, but for now, it is advisable to run Conda tasks in the $SCRATCH environment due to its high I/O load.
