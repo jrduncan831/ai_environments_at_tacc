@@ -3,7 +3,7 @@ Welcome to Building AI/ML Environments
 
 Overview
 --------
-This website is intended as a resource for setting up and managing environments tailored to AI and Machine Learning projects on systems hosted by the Texas Advanced Computing Center (TACC). 
+This website is intended as a resource for setting up and managing environments tailored to AI and machine learning (ML) projects on systems hosted by the Texas Advanced Computing Center (TACC). 
 
 What You Will Learn
 -------------------
