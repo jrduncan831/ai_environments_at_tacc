@@ -7,7 +7,7 @@ This website is intended as a resource for setting up and managing environments 
 
 What You Will Learn
 -------------------
-   - **Environment Setup:** Step-by-step instructions for configuring python virtual environments (venv) and conda environments.
+   - **Environment Setup:** Step-by-step instructions for configuring python virtual environments and conda environments.
    - **Containerization:** How to build and deploy custom Docker containers with GPU and MPI support.
      
 .. toctree::
