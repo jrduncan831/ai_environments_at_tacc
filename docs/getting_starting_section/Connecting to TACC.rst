@@ -64,7 +64,7 @@ $WORK is the **highest** directory on a global shared file system between severa
     Because work is such a large data storage shared between so many users, the following problems may emerge:
 
     * **Constraints on Shared Resources** - Because so many users are running jobs on $WORK, high-intensity Input/Output (I/O) operations may cause performance bottlenecks and contention between users.
-    * **Offload Files to $SCRATCH** - One method of solving this is to run high I/O operations in the $SCRATCH directory, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.*
+    * **Offload Files to $SCRATCH** - One method of solving this is to run high I/O operations in the $SCRATCH directory, created for the specific purpose of not overloading the $WORK directory, and moving output files into $WORK.
     * **Striping Large Files** - The $WORK file system has 24 I/O targets available, and stripe count should be adjusted accordingly. *It is generally advised to allocate at least one stripe for every 100 GB of file size, not exceeding 75% of available stripes.*
 
 Issues Hosting Conda Environments on $WORK
