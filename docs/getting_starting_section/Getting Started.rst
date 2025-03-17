@@ -8,11 +8,6 @@ In the first section of this tutorial we will cover:
 #. How to connect to the computing resources at TACC
 #. A high level overview of each environment management tool  
 #. How to install pytorch and its dependencies using virtual environments, conda, and containers
-
-If you are already familiar with this information, feel free to skip ahead to our advanced sections on containers and conda  
-to learn how to best use the tools for AI/ML workloads at TACC. 
-
-
      
 .. toctree::
    :maxdepth: 1
