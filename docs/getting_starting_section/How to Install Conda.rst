@@ -8,8 +8,7 @@ Conda is a powerful package manager and environment management tool, widely used
 
 What is Conda-Forge and Mini-Forge?
 -----------------------------------
-Conda-Forge is a comunity-driven repository of conda packages. Mini-Forge is a lightweight installer for Conda, optimized to use Conda-Forge by default
-For this guide's purposes, we will use MiniForge.
+Conda-Forge is a comunity-driven repository of conda packages. Mini-Forge is a lightweight installer for Conda, optimized to use Conda-Forge by default. For this guide's purposes, we will use MiniForge.
 
 Steps to Install Conda
 ----------------------
