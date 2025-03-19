@@ -176,13 +176,14 @@ Once Conda is installed, you can start creating and managing environments using 
 
 Lets Install & Test PyTorch
 ---------------------------
-Now that we have Conda installed and we understand how to **activate**, **deactivate**, and **delete** environments, let's try **installing and testing pytorch** by running the **multigpu_torchrun.py** script from the official Pytorch library.
+Now that we have Conda installed and we understand how to **activate**, **deactivate**, and **delete** environments, let's try installing and testing pytorch by running the **multigpu_torchrun.py** script from the official Pytorch library.
 This script facilitates and streamlines the training of ML models on multiple GPUs, as well as benchmarks the performance of Pytorch-based models on multiple GPUs.
 
 To run the multi_gpu_torchrun script, we must first use the **idev** tool to request a GPU Node. Each Node on Frontera is comprised of four GPUs, which is why we'll only request one to run the multigpu_torchrun.py script.
 
 **Step 1. Request a Node through idev**
-    idev is a tool developed by TACC to facilitate real-time software development on our HPC systems. It also enables us to request a specific kind and number of nodes through the command line, which we would only be able to do otherwise through the Tacc Analysis Portal (TAP).
+    The [idev](https://docs.tacc.utexas.edu/software/idev/) command is a tool developed by TACC to facilitate real-time software development on our HPC systems.
+
 First, we'll start an idev session. Ensure your current directory is:
 
 ::
@@ -195,8 +196,6 @@ You should be in the **work** folder for Frontera. In this work folder, begin yo
 
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
-.. note:
-    If we don't specifically request 1 compute node beforehand, when we run the multigpu_torchrun.py script, the program will run it on every GPU available. This may affect others using the GPU nodes on Frontera.
 
 When you request a node through idev, you will be taken to a loading screen as your job awaits being run. After your idev session starts, your current working directory will look like:
 
