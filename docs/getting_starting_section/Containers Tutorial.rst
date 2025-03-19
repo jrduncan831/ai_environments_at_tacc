@@ -154,7 +154,7 @@ You can replace "output.sif" with whatever you would like to name the file. Othe
 
 **Step 6. Run code on GPU**
 
-    Finally, we can execute the multigpu training script within our Pytorch container.  It is important to note in the command below that apptainer **fully** supports GPU utilization by exposing devices at runtime with the ``--nv`` flag.  It is critical to use this flag to access the GPU. 
+Finally, we can execute the multigpu training script within our Pytorch container.  It is important to note in the command below that apptainer **fully** supports GPU utilization by exposing devices at runtime with the ``--nv`` flag.  It is critical to use this flag to access the GPU.
 
 ::
 
