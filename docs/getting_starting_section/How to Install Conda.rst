@@ -91,7 +91,7 @@ When you run pwd, your working directory should now be:
 
     /work/#####/<username>/frontera
 
-Now that we’re in the work directory for frontera, we can install Conda. Use **curl** (a command-line tool to transfer data from a server via HTTP) to download Miniforge without having to download it to our local machine, which will come bundled with conda.
+Now that we’re in the work directory for frontera, we can install Conda. Use **curl** (a command-line tool to transfer data from a server via HTTP) to download Miniforge which will come bundled with conda.
 
 Run the following command in your terminal:
 
