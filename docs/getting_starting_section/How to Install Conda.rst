@@ -38,14 +38,10 @@ TACC systems require two-factor authentication. Follow the on-screen prompts to 
 
 .. note::
    
-    It is best practice to use the $WORK directory to host our environment, since the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks.
-
-- Although in terms of I/O, **$SCRATCH** is actually the best place to install Conda and run subsequent tasks, files in this directory are routinely purged to save space. If you choose to install Conda in $SCRATCH, understand that you may have to re-install every so often.
-- Ensure any output is bundled into a .tar file and moved into $WORK if using Conda for a high I/O task in $SCRATCH.
-- **Placing Conda in $WORK is the best possible environment because it has enough storage capacity for Conda’s precompiled packages (NumPy, Tensorflow, etc.) but is not regularly purged.**
+    It is best practice to store conda environments in the $WORK directory because the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks. 
 
 **Step 4. Install MiniForge**
-Miniforge is a mini Conda installer that we can use as an alternative to Anaconda and Miniconda. We will be using it to download Conda into the $WORK directory.
+Miniforge is one of several Conda installers, others examples include Anaconda and Miniconda. We will be use miniforge  to download Conda into the $WORK directory.
 We are going to install Conda in **Frontera** for the sake of this tutorial. When you SSH into Frontera, you will see this screen:
 
 .. image:: images/conda-tut-1.png
