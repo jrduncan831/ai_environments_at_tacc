@@ -79,7 +79,7 @@ Testing our Virtual Environment with multigpu_torchrun.py
 
 To demonstrate how to use our virtual environment, we will download the multigpu_torchrun.py script from a github repository, install pytorch, and then run an example benchmarking function from the script, all within our virtual environment.
 
-**multigpu_torchrun.py** is a script from the official Pytorch repository that leverages distributed data parallel (DDP) to split ML training tasks across GPUs, allowing for a more efficient runtime. 
+**multigpu_torchrun.py** is a script from the official pytorch repository that leverages distributed data parallel (DDP) to split ML training tasks across GPUs, allowing for a more efficient runtime. 
 
 The multigpu_torchrun.py script can be found in the github repository below:
 
@@ -102,7 +102,7 @@ Begin your `idev <https://docs.tacc.utexas.edu/software/idev/>`_ session by runn
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
 This will request a **single compute node (-N 1 -n 1)** in the **rtx-dev** partition/queue **(-p)** for a time length of **two hours (-t 02:00:00).**
-The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and Pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website <https://tacc.utexas.edu/systems/all/>`_ for more information.
+The rtx-dev queue is specifically for the NVIDIA RTX-5000 GPU compute nodes on Frontera systems, which are compatible with CUDA and pytorch by extension. To determine the queues and hardware specifications of TACC's HPC systems, see our `website <https://tacc.utexas.edu/systems/all/>`_ for more information.
 
 When you request a node through idev, you will be taken to a loading screen. After your idev session starts, your current working directory will look like:
 
@@ -113,7 +113,7 @@ When you request a node through idev, you will be taken to a loading screen. Aft
 This is how you will know your idev session has begun. **Ensure you see the (myenv) tag before your working directory. If you do not, activate your virtual environment again.** 
 
 **Step 8. Download Pytorch into our Virtual Environment**
-   To run multigpu_torchrun, we will need to install Pytorch and a few critical Torch libraries to support our script's ML training tasks. Run the following pip command inside of your virtual environment to install Pytorch:
+   To run multigpu_torchrun, we will need to install pytorch. Run the following pip command inside of your virtual environment:
 
 ::
 
