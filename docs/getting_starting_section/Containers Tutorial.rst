@@ -6,7 +6,7 @@ Containers with Pytorch
 
 Docker is a platform for developing, shipping, and running applications inside **containers**. 
 
-A **software container** is a lightweight, portable package that includes everything an application needs to run—including code, libraries, dependencies, and system settings. 
+A **software container** is a lightweight, portable package that includes everything an application needs to run—including code, libraries, dependencies, operating system, and system settings. 
 
 It ensures the app works the same across different environments, without conflicts. Although often compared to virtual machines because of their structure, because they **share the host OS**, they are **faster and more efficient**.
 
