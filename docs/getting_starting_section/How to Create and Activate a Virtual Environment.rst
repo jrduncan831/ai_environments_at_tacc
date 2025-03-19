@@ -18,7 +18,7 @@ Steps to Create and Activate a Virtual Environment
    Open the terminal (or Command Prompt on Windows), SSH onto a TACC machine, and navigate to the directory where you want to create the virtual environment.
 
 **Step 2: Run the SSH Command**  
-Use the following command to connect to TACC systems:
+   Use the following command to connect to TACC systems:
 
 :: 
 
@@ -87,14 +87,14 @@ The Multigpu_Torchrun.py script can be found in the Github repository below:
 
 
 **Step 6. Download the repository containing code to run**
-You can download a Github repository through the command line with the command **git clone**.
+   You can download a Github repository through the command line with the command **git clone**.
 
 ::
 
     git clone https://github.com/pytorch/examples.git
 
 **Step 7. Request a Node through idev**
-To run our example script, we'll need to allocate a single node for the purposes of our task. One node on Frontera has 4 GPUs, which is adequate to run Multigpu_Torchrun.py's benchmarking function.
+   To run our example script, we'll need to allocate a single node for the purposes of our task. One node on Frontera has 4 GPUs, which is adequate to run Multigpu_Torchrun.py's benchmarking function.
 
 .. note::
     We request a single node because Multigpu_Torchrun runs training tasks across as many nodes on the system as possible by default, and if we run it without specifying a number of nodes to use, it may affect the runtime of other users on the system.
@@ -116,14 +116,14 @@ When you request a node through idev, you will be taken to a loading screen. Aft
 This is how you will know your idev session has begun. **Ensure you see the (myenv) tag before your working directory. If you do not, activate your virtual environment again.** 
 
 **Step 8. Download Pytorch into our Virtual Environment**
-To run Multigpu_Torchrun, we will need to install Pytorch and a few critical Torch libraries to support our script's ML training tasks. Run the following pip command inside of your virtual environment to install Pytorch:
+   To run Multigpu_Torchrun, we will need to install Pytorch and a few critical Torch libraries to support our script's ML training tasks. Run the following pip command inside of your virtual environment to install Pytorch:
 
 ::
 
     pip3 install torch torchvision torchaudio
 
 **Step 9. CD into the ddp tutorial series folder**
-We should now see a new directory called **examples** present in our virtual environment.
+   We should now see a new directory called **examples** present in our virtual environment.
 **cd** into the following directory:
 
 ::
@@ -132,8 +132,8 @@ We should now see a new directory called **examples** present in our virtual env
 
 *This will be a hidden directory.*
 
-**Step 6. Run multigpu_torchrun.py**
-And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
+**Step 10. Run multigpu_torchrun.py**
+   And within our virtual environment, we will use the **torchrun** command to launch the training script across all of the available nodes (1).
 
 ::
 
