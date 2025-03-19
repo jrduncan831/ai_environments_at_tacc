@@ -5,11 +5,6 @@ Now that we have set up a virtual environment in Python using the venv module, l
 
 Conda is a powerful package manager and environment management tool, widely used in data science and machine learning to manage dependencies and create isolated environments for different projects. This guide will walk you through the steps to install Conda on your system.
 
-Prerequisites
--------------
-Before you begin, ensure that you have the following:
-    - A working internet connection to download Conda.
-    - A terminal or command prompt to execute commands.
 
 What is Conda-Forge and Mini-Forge?
 -----------------------------------
