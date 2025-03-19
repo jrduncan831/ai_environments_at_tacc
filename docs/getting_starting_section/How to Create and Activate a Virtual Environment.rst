@@ -79,9 +79,9 @@ Testing our Virtual Environment with multigpu_torchrun.py
 
 To demonstrate how to use our virtual environment, we'll be download the multigpu_torchrun.py script from a github repository, install pytorch, and then run an example benchmarking function from the script, all within our virtual environment.
 
-**Multigpu_Torchrun.py** is a script from the official Pytorch repository that leverages distributed data parallel (DDP) to split ML training tasks across GPUs, allowing for a more efficient runtime. 
+**multigpu_torchrun.py** is a script from the official Pytorch repository that leverages distributed data parallel (DDP) to split ML training tasks across GPUs, allowing for a more efficient runtime. 
 
-The Multigpu_Torchrun.py script can be found in the Github repository below:
+The multigpu_torchrun.py script can be found in the Github repository below:
 
 `https://github.com/pytorch/examples <https://github.com/pytorch/examples>`_
 
@@ -94,10 +94,10 @@ The Multigpu_Torchrun.py script can be found in the Github repository below:
     git clone https://github.com/pytorch/examples.git
 
 **Step 7. Request a Node through idev**
-   To run our example script, we'll need to allocate a single node for the purposes of our task. One node on Frontera has 4 GPUs, which is adequate to run Multigpu_Torchrun.py's benchmarking function.
+   To run our example script, we'll need to allocate a single node for the purposes of our task. One node on Frontera has 4 GPUs, which is adequate to run multigpu_torchrun.py's benchmarking function.
 
 .. note::
-    We request a single node because Multigpu_Torchrun runs training tasks across as many nodes on the system as possible by default, and if we run it without specifying a number of nodes to use, it may affect the runtime of other users on the system.
+    We request a single node because multigpu_torchrun runs training tasks across as many nodes on the system as possible by default, and if we run it without specifying a number of nodes to use, it may affect the runtime of other users on the system.
 
 Begin your `idev <https://docs.tacc.utexas.edu/software/idev/>`_ session by running the following in your virtual environment:
 ::
@@ -116,7 +116,7 @@ When you request a node through idev, you will be taken to a loading screen. Aft
 This is how you will know your idev session has begun. **Ensure you see the (myenv) tag before your working directory. If you do not, activate your virtual environment again.** 
 
 **Step 8. Download Pytorch into our Virtual Environment**
-   To run Multigpu_Torchrun, we will need to install Pytorch and a few critical Torch libraries to support our script's ML training tasks. Run the following pip command inside of your virtual environment to install Pytorch:
+   To run multigpu_torchrun, we will need to install Pytorch and a few critical Torch libraries to support our script's ML training tasks. Run the following pip command inside of your virtual environment to install Pytorch:
 
 ::
 
