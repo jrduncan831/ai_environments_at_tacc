@@ -87,7 +87,7 @@ The multigpu_torchrun.py script can be found in the github repository below:
 
 
 **Step 6. Download the repository containing code to run**
-   You can download a Github repository through the command line with the command **git clone**.
+   You can download a github repository through the command line with the command **git clone**.
 
 ::
 
