@@ -166,9 +166,9 @@ Once you've executed the script, you can check the output directly in your termi
 
 Conclusion
 ----------
-You have now successfully pulled a PyTorch image from Docker Hub, mounted local directories into the container, and run a Python script within an Apptainer container.
+You have now successfully pulled a PyTorch image from Docker Hub and run a Python script within an Apptainer container.
 
-Again for a more detailed introduction to containers please see the `Containers at TACC tutorial <https://containers-at-tacc.readthedocs.io/en/latest/index.html>`_.
+For a more detailed introduction to containers please see the `Containers at TACC tutorial <https://containers-at-tacc.readthedocs.io/en/latest/index.html>`_.
 
 You have also now completed the first section of this tutorial.  In the next section, we will expand on building AI/ML containers at TACC by building a customized Dockerfile for a specific applicaiton using BERT. 
 
