@@ -10,7 +10,7 @@ This section provides an overview of three common software tools that are used t
 Virtual Environments
 --------------------
 
-A python virtual environment, often referred to as a "venv", installs all python packages into a specific target folder on your machine. When you "activate" the environment, all of the installed packages are made visible to your python installation.  Under the hood, virtual environment are controlling your system variables (e.g. PATH) to manage where software is installed and in which directories programs like python look for installed packages. 
+A python virtual environment, often referred to as a "venv", installs all python packages into a specific target folder on your machine. When you "activate" the environment all of the installed packages are made visible to your python installation.  Under the hood, virtual environments are controlling your system variables (e.g. PATH) to manage where software is installed and in which directories programs like python look for installed packages. 
 
 **Key Features**  
 ^^^^^^^^^^^^^^^^  
