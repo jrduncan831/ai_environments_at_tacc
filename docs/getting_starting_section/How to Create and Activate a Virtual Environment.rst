@@ -96,9 +96,6 @@ The multigpu_torchrun.py script can be found in the github repository below:
 **Step 7. Request a Node through idev**
    To run our example script, we'll need to allocate a single node for the purposes of our task. One node on Frontera has 4 GPUs, which is adequate to run multigpu_torchrun.py's benchmarking function.
 
-.. note::
-    We request a single node because multigpu_torchrun runs training tasks across as many nodes on the system as possible by default, and if we run it without specifying a number of nodes to use, it may affect the runtime of other users on the system.
-
 Begin your `idev <https://docs.tacc.utexas.edu/software/idev/>`_ session by running the following in your virtual environment:
 ::
 
