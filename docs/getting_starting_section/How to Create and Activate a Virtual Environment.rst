@@ -74,7 +74,7 @@ Upon activation, you should see parentheses around the name of your environment 
 
 In the next section, we will test this virtual environment by installing pytorch into it and then running an example script.
 
-Testing our Virtual Environment with Multigpu_Torchrun.py
+Testing our Virtual Environment with multigpu_torchrun.py
 ---------------------------------------------------------
 
 To test whether our virtual environment works and can run Pytorch scripts, models, and other complex ML tasks in isolation, we'll be downloading the multigpu_torchrun.py script from a github repository, installing Pytorch, and running an example benchmarking function from the script, all within our virtual environment.
