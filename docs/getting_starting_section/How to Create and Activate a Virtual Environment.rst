@@ -66,7 +66,7 @@ The virtual environment directory contains:
 
         source myenv/bin/activate
 
-Upon activation, you should see parentheses around the name of your environment appear in front of your working directory, like so:
+Upon activation, you should see parentheses around the name of your environment appear in front of your working directory:
 
     ::
         
