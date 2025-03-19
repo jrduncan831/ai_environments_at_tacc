@@ -72,12 +72,12 @@ Upon activation, you should see parentheses around the name of your environment 
         
         (myenv) login3.frontera(470)$
 
-Let's try **testing this Virtual environment by running a script.**
+In the next section, we will test this virtual environment by installing pytorch into it and then running an example script.
 
 Testing our Virtual Environment with Multigpu_Torchrun.py
 ---------------------------------------------------------
 
-To test whether our virtual environment works and can run Pytorch scripts, models, and other complex ML tasks in isolation, we'll be downloading the Multigpu script from a github repository, installing Pytorch, and running an example benchmarking function from the script, all within our virtual environment.
+To test whether our virtual environment works and can run Pytorch scripts, models, and other complex ML tasks in isolation, we'll be downloading the multigpu_torchrun.py script from a github repository, installing Pytorch, and running an example benchmarking function from the script, all within our virtual environment.
 
 **Multigpu_Torchrun.py** is a script from the official Pytorch repository that leverages distributed data parallel (DDP) to split ML training tasks across GPUs, allowing for a more efficient runtime. 
 
