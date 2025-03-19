@@ -17,7 +17,7 @@ What is a Docker? What are Images?
 ----------------------------------
 **Docker** is a platform that allows developers to package applications into containers and share them through the cloud.
 
-A **Docker image** is a pre-configured package that contains everything needed to run an application, including the code, runtime, libraries, and dependencies. Once an image is **instantiated**, it becomes a **container**. The distinction is necessary because one can launch multiple containers from the same base image.
+A **Docker image** is a pre-configured package that contains everything needed to run an application, including the code, runtime, libraries, and dependencies. Once an image is **instantiated**, it becomes a **container**. The distinction is necessary because multiple containers can be instantiate from the same base image.
 
 Apptainers vs Containers
 ------------------------
