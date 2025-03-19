@@ -44,7 +44,7 @@ The way conda manages files is not optimized for use on HPC systems owing to the
 Containers
 ----------
 
-Containers are lightweight and portable software platforms, similar to virtual machine images, but aimed at high performance applications. A container will not only have the code for the target application, but also its runtime, system tools, libraries, and settings, ensuring consistent execution across environments. Please see `TACC's container tutorials <https://containers-at-tacc.readthedocs.io/en/latest/>`_ for more details. 
+Containers are lightweight and portable software platforms, similar to virtual machine images, but aimed at high performance applications. A container will not only have the code for the target application, but also its runtime, system tools, libraries, and settings, ensuring consistent execution across environments. The primary software engine that builds and runs containers is called Docker.  The HPC systems at TACC use software called Apptainer, which will convert and run containers made using docker. Please see `TACC's container tutorials <https://containers-at-tacc.readthedocs.io/en/latest/>`_ for more details. 
 
 
 **Key Features**  
