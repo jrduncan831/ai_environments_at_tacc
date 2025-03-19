@@ -8,7 +8,7 @@ Docker is a platform for developing, shipping, and running applications inside *
 
 A **software container** is a lightweight, portable package that includes everything an application needs to run—including code, libraries, dependencies, operating system, and system settings. 
 
-It ensures the app works the same across different environments, without conflicts. Although often compared to virtual machines because of their structure, because they **share the host OS**, they are **faster and more efficient**.
+It ensures your code can be deployed to different machines without worrying about installing dependencies. Although often compared to virtual machines because of their structure, containers are generally faster and more efficient than virtual machines.
 
 This containerization guide will focus specifically on the AI/ML applications of containerization with Docker. For a more in-depth guide, view the `official TACC containers guide <https://containers-at-tacc.readthedocs.io/en/latest/>`_.
 
@@ -17,7 +17,7 @@ What is a Docker? What are Images?
 ----------------------------------
 **Docker** is a platform that allows developers to package applications into containers and share them through the cloud.
 
-A **Docker image** is a pre-configured package that contains everything needed to run an application, including the code, runtime, libraries, and dependencies. Once an image is **instantiated**, it becomes a **container**.
+A **Docker image** is a pre-configured package that contains everything needed to run an application, including the code, runtime, libraries, and dependencies. Once an image is **instantiated**, it becomes a **container**. The distinction is necessary because one can launch multiple containers from the same base image.
 
 Apptainers vs Containers
 ------------------------
