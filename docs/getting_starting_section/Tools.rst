@@ -39,7 +39,7 @@ Conda is similar to python virtual environments except that it can also install 
 * **Cross-Language Support**: 
    Supports a variety of programming languages- not just Python!
 
-Conda can be used to set up complex environments on non-HPC systems, but it is not optimized for use on HPC systems. If you would like to use Conda, view our tutorial on `How to Install Conda <\ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_ for use on our systems as well as our advanced Conda section. This will give examples of various ways to install conda on our system to get the best performance. 
+The way conda manages files is not optimized for use on HPC systems owing to the distributed and shared nature of HPC data storage. If you would like to use Conda, view our tutorial on `How to Install Conda <\ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_ for use on our systems as well as our advanced Conda section. This will give examples of various ways to install conda on our system to get the best performance. 
 
 Containers
 ----------
