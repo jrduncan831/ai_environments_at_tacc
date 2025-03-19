@@ -38,7 +38,7 @@ For the purposes of this tutorial, we will be utilizing the **Frontera** system,
 
 
 **Step 3. Create the Virtual Environment**
-    Run this command to create a virtual environment. You can replace 'myenv' with whatever you want to name your virtual environment.
+   Run this command to create a virtual environment. You can replace 'myenv' with whatever you want to name your virtual environment.
 
    ::
 
