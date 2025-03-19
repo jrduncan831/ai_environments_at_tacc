@@ -182,7 +182,7 @@ This script facilitates and streamlines the training of ML models on multiple GP
 To run the multi_gpu_torchrun script, we must first use the **idev** tool to request a GPU Node. Each Node on Frontera is comprised of four GPUs, which is why we'll only request one to run the multigpu_torchrun.py script.
 
 **Step 1. Request a Node through idev**
-    The [idev](https://docs.tacc.utexas.edu/software/idev/) command is a tool developed by TACC to facilitate real-time software development on our HPC systems.
+    The `idev <https://docs.tacc.utexas.edu/software/idev/>`_ command is a tool developed by TACC to facilitate real-time software development on our HPC systems.
 
 First, we'll start an idev session. Ensure your current directory is:
 
