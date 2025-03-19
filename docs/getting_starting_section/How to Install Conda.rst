@@ -197,7 +197,7 @@ You should be in the **work** folder for Frontera. In this work folder, begin yo
     idev -N 1 -n 1 -p rtx-dev -t 02:00:00
 
 
-When you request a node through idev, you will be taken to a loading screen as your job awaits being run. After your idev session starts, your current working directory will look like:
+When you request a node through idev, you will see a status update print to the terminal while your job is waiting in the queue. After your idev session starts, your terminal session will automatically be connected to the node you requested. Once connected, you should see your terminal prompt change to the node name:
 
 ::
 
