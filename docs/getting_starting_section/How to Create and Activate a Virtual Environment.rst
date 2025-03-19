@@ -5,7 +5,7 @@ Virtual environments are essential for isolating project dependencies and ensuri
 
 Prerequisites
 -------------
-   - Python 3.3 or newer installed on your system. (Usually pre-installed)
+   - Python 3.3 or newer
    - A terminal or command prompt to execute commands.
 
 .. note::
