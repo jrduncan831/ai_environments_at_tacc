@@ -148,13 +148,13 @@ You can replace "output.sif" with whatever you would like to name the file. Othe
 
 .. note::
     
-    CUDA is an API that allows software to utilize NVIDIA GPUs for accelerated computing. This is essential for deep learning because GPUs process tasks much faster than CPUs.
+    CUDA is an API that allows software to utilize NVIDIA GPUs for accelerated computing. This is essential for deep learning because GPUs process certain calculations much faster than CPUs.
     Since TACC machines have NVIDIA GPUs, we must use a CUDA-enabled PyTorch image to fully leverage GPU acceleration.
 
 
 **Step 6. Run code on GPU**
 
-Finally, we can execute the multigpu training script within our Pytorch container.  It is important to note in the command below that apptainer **fully** supports GPU utilization by exposing devices at runtime with the ``--nv`` flag.  It is critical to use this flag to access the GPU.
+Finally, we can execute the multigpu training script within our Pytorch container.  It is important to note in the command below that apptainer will only recognize the presence of a GPU by passing the apptainer command the ``--nv`` flag.
 
 ::
 
@@ -170,7 +170,7 @@ You have now successfully pulled a PyTorch image from Docker Hub and run a Pytho
 
 For a more detailed introduction to containers please see the `Containers at TACC tutorial <https://containers-at-tacc.readthedocs.io/en/latest/index.html>`_.
 
-You have also now completed the first section of this tutorial.  In the next section, we will expand on building AI/ML containers at TACC by building a customized Dockerfile for a specific applicaiton using BERT. 
+You have also now completed the first section of this tutorial.  In the next section, we will detail how to build  your own container on top of a CUDA base container, install pytorch and other dependencies, and upload it to TACC systems. 
 
 
 
