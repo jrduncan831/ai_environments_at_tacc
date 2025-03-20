@@ -2,7 +2,7 @@ Overview of conda @ TACC
 ========================
 
 
-Using conda at TACC is a little tricky. The reason for this is that large conda environments, containing many thousands of files, can cause issues with the Lustre file system we have on several systems at TACC. In this tutorial we will discuss a few options you have for how to use conda on our systems in a way that avoids these issues.  In general, there are two ways to use conda: 
+Using conda at TACC in a performant way is tricky. The reason for this is that large conda environments, containing many thousands of files, can cause issues with the Lustre file system we have on several systems at TACC. In this tutorial we will discuss a few options you have for how to use conda on our systems in a way that avoids these issues.  In general, there are two ways to use conda: 
 
     1. Installed on our filesystems
     2. Installed inside of a container. 
