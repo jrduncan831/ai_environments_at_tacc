@@ -4,12 +4,14 @@ Advanced Container Build with Pytorch
 In this tutorial, we will build off content from TACCs container tutorial by detailing how to build the **GPU-enabled container** for a BERT classifier python script.  This tutorial is an extension of `TACCs GPU aware containers tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/03.mpi_and_gpus.html#building-a-gpu-aware-container>`_.
 Prerequisite knowledge about the Docker platform and containerization is necessary to follow along with this tutorial, which can be found on the `TACC Containers Tutorial <https://containers-at-tacc.readthedocs.io/en/latest/index.html>`_ website.
 
-We will begin by:
+The process for containerizing your code is as follows:
 
-* **Determining the necessary dependencies**, including the required versions of CUDA, PyTorch, Python, and additional Python packages. 
-* Next, we will **Select an appropriate NVIDIA CUDA base image** that aligns with our chosen CUDA version, considering the differences between base, runtime, and development images. We will then install PyTorch using the appropriate installation command to ensure compatibility with our environment. 
-* Next, we will use this base image to **create a Dockerfile** that layers the selected CUDA image with a Python environment, installs PyTorch, and includes all additional dependencies specified in a requirements.txt file. 
-* Finally, we will **Upload the container to Docker Hub**, **transfer it to TACC systems like Frontera**, and **convert it into an Apptainer image** for seamless integration.
+* **Determine the necessary dependencies**, including the required versions of CUDA, PyTorch, Python, and additional Python packages. 
+* **Select the appropriate NVIDIA CUDA base image**
+* **Create a Dockerfile** which will include the commands to install all our dependencies
+* **Build the container**
+* **Upload the container image to Docker Hub**
+* **Pull the container to TACC systems like Frontera, and run it**,
 
 By the end of this tutorial, we will have a fully customized, GPU-accelerated container for running BERT classification tasks on TACC's high-performance computing resources.
 
