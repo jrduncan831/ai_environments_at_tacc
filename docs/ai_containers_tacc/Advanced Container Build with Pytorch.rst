@@ -11,7 +11,6 @@ The process for containerizing your code is as follows:
 * **Create a Dockerfile** which will include the commands to install all our dependencies
 * **Build the container**
 * **Upload the container image to Docker Hub**
-* **Pull the container to TACC systems like Frontera, and run it**,
 
 By the end of this tutorial, we will have a fully customized, GPU-accelerated container for running BERT classification tasks on TACC's high-performance computing resources.
 
