@@ -23,7 +23,7 @@ We want to run the code contained in the `bert-classifier.py <https://raw.github
     - Python 10
     - pytorch 1.7.1
 
-Additional required python packages listed in requirements.txt are:
+Additional required python packages are:
 
 ::
 
@@ -36,13 +36,15 @@ Additional required python packages listed in requirements.txt are:
 
 =======================
 
+Please copy these requirements into a text file called requirements.txt and place it in the same directory as the dockerfile we will create together below.
+
 Running a BERT model will also require the following data files:
 
 - `train.csv <https://github.com/eriksf/bert-classifier/blob/main/train.csv>`_
 - `test.csv <https://github.com/eriksf/bert-classifier/blob/main/test.csv>`_ 
 - `valid.csv <https://github.com/eriksf/bert-classifier/blob/main/valid.csv>`_
 
-These are the **training**, **testing**, and **validation** data respectively.
+These are the **training**, **testing**, and **validation** data respectively.  Place these files in the same directory as your dockerfile.
 
 Below, we will walk you through some of the components you will need on your Dockerfile.
 
@@ -87,9 +89,7 @@ Command for Installing Pytorch
 ------------------------------
 We also need Pytorch to be present in our Dockerfile to run BERT.
 
-The PyTorch website provides a `widget <https://pytorch.org/get-started/locally/>`_ on their website to generate the correct installation command for different environments. Since we need PyTorch 1.7.1 with CUDA 11.0, we will use the following command:
-
-The pytorch version we want can be found in the “older versions” section of the website.  Scrolling down to v1.7.1 look for the “wheel” section that provides the pip install command for Linux/Windows for CUDA 11.  The command is:
+The PyTorch website provides a `widget <https://pytorch.org/get-started/locally/>`_ on their website to generate the correct installation command for different environments for recent versions of pytorch. Since we need PyTorch 1.7.1 with CUDA 11.0, we will need to view the “older versions” of pytorch, which can be found `here <https://pytorch.org/get-started/previous-versions/>`_.  Scrolling down to v1.7.1 look for the “wheel” section that provides the pip install command for Linux/Windows for CUDA 11. The command we need is:
 
 ::
 
@@ -98,10 +98,6 @@ The pytorch version we want can be found in the “older versions” section of 
 
 Writing a Dockerfile
 --------------------
-A Dockerfile **automates** the container creation process. Now that we have our components, we can assemble them and use them to build our container. 
-The general pipeline for building a Dockerfile is to use the FROM command to start with the Nvidia CUDA container, then place a series of RUN commands below it to install Python and perform pip installs of the desired Python packages.
-Then, we can copy our script and data (test.csv, train.csv, and valid,csv) into our file.
-
 Below is an example Dockerfile that:
 
 - Uses an NVIDIA CUDA runtime base image.
