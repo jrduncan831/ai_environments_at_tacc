@@ -1,7 +1,7 @@
 Advanced Container Build with Pytorch
 =====================================
 
-In this tutorial, we will build off content from TACCs container tutorial by detailing how to build the **GPU enabled container** for a BERT classifier python script.  This tutorial is an extension of `TACCs GPU aware containers tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/03.mpi_and_gpus.html#building-a-gpu-aware-container>`_.
+In this tutorial, we will build off content from TACCs container tutorial by detailing how to build the **GPU-enabled container** for a BERT classifier python script.  This tutorial is an extension of `TACCs GPU aware containers tutorial <https://containers-at-tacc.readthedocs.io/en/latest/singularity/03.mpi_and_gpus.html#building-a-gpu-aware-container>`_.
 Prerequisite knowledge about the Docker platform and containerization is necessary to follow along with this tutorial, which can be found on the `TACC Containers Tutorial <https://containers-at-tacc.readthedocs.io/en/latest/index.html>`_ website.
 
 We will begin by:
