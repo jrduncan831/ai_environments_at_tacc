@@ -60,6 +60,18 @@ Once you know which version of CUDA you need (11.0 in this case), you can find a
     * The **development** image is built on top of the runtime image and includes the CUDA compiler (nvcc), development headers, and other necessary tools for building and compiling multi-stage CUDA applications.
     * Best for development environments where CUDA code needs to be compiled inside the container.
 
+The image tag syntax is:
+
+::
+
+    [CUDA version #]-[optional cudnn]-[base/runtime/devel]-[os version]
+
+As an example, the CUDA 11.0.3 runtime image with cuDNN running Ubuntu 20 has the tag:
+
+::
+
+    11.0.3-cudnn8-runtime-ubuntu20.04
+
 **Declare the CUDA base image**
 When you create a Dockerfile, the first line specifies the CUDA base image:
 
@@ -67,19 +79,9 @@ When you create a Dockerfile, the first line specifies the CUDA base image:
 
     FROM nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04
 
-The image tag syntax is:
 
-::
 
-    [CUDA version #]-[optional cudnn]-[base/runtime/devel]-[os version]
-
-As an example, the CUDA 11.0.3 runtime image with cuDNN has the tag:
-
-::
-
-    11.0.3-cudnn8-runtime
-
-This tells Docker to pull the nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04 image from Docker Hub when the container is built.
+This tells Docker to build our dependencies on top of the nvidia/cuda:11.0.3-cudnn8-runtime-ubuntu20.04 image from Docker Hub.
 
 Command for Installing Pytorch
 ------------------------------
