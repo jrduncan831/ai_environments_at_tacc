@@ -87,7 +87,7 @@ Command for Installing Pytorch
 ------------------------------
 We also need Pytorch to be present in our Dockerfile to run BERT.
 
-The PyTorch website provides a `tool <https://pytorch.org/get-started/locally/>`_ called **Compute Platform** to generate the correct installation command for different environments. Since we need PyTorch 1.7.1 with CUDA 11.0, we will use the following command:
+The PyTorch website provides a `widget <https://pytorch.org/get-started/locally/>`_ on their website to generate the correct installation command for different environments. Since we need PyTorch 1.7.1 with CUDA 11.0, we will use the following command:
 
 The pytorch version we want can be found in the “older versions” section of the website.  Scrolling down to v1.7.1 look for the “wheel” section that provides the pip install command for Linux/Windows for CUDA 11.  The command is:
 
