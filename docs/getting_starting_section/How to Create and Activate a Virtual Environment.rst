@@ -14,27 +14,15 @@ Prerequisites
 Steps to Create and Activate a Virtual Environment
 --------------------------------------------------
 
-**Step 1: Open a Terminal or Command Prompt**
-   Open the terminal (or Command Prompt on Windows), SSH onto a TACC machine, and navigate to the directory where you want to create the virtual environment.
+**Step 1. Connect to our systems.**
+Follow the steps in our tutorial :doc:`here<ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>` to connect to your system of choice.
 
-**Step 2: Run the SSH Command**  
-   Use the following command to connect to TACC systems:
-
-:: 
-
-    ssh <username>@<hostname>
-
-(replace `<username>` with your TACC username and `<hostname>` with the system hostname)
-
-For the purposes of this tutorial, we will be utilizing the **Frontera** system, so our command should look like:
-
-::
-
-    ssh <username>@frontera.tacc.utexas.edu
+Once we have connected to TACC systems, we can now create the virtual environment.
 
 .. note::
    
     It is best practice to use the $WORK directory to host our environment, since the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks.
+
 
 
 **Step 3. Create the Virtual Environment**
