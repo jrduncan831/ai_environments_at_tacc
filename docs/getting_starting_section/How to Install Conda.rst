@@ -22,7 +22,7 @@ Once we have connected to TACC systems, we can now install Miniforge.
     It is best practice to store conda environments in the $WORK directory because the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks. 
 
 
-**Step 4. Install MiniForge**
+**Step 2. Install MiniForge**
 Miniforge is one of several Conda installers, others examples include Anaconda and Miniconda. We will be use miniforge  to download Conda into the $WORK directory.
 We are going to install Conda in **Frontera** for the sake of this tutorial. When you SSH into Frontera, you will see this screen:
 
@@ -105,7 +105,7 @@ Now we can run the Miniforge installer:
 
 After running the bash script, it will ask you to update your shell profile to automatically initialize conda. **Type ‘yes’.**
 
-**Step 5. Initialize Conda**
+**Step 3. Initialize Conda**
    After installation, initialize Conda to configure your shell:
     
     ::
@@ -114,7 +114,7 @@ After running the bash script, it will ask you to update your shell profile to a
 
     Restart your terminal for the changes to take effect.
 
-**Step 6. Verify the Installation**
+**Step 4. Verify the Installation**
     Confirm that Conda is installed by running:
     
     ::
