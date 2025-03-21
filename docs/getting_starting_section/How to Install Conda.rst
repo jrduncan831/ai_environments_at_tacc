@@ -12,33 +12,15 @@ Conda-Forge is a comunity-driven repository of conda packages. Mini-Forge is a l
 
 Steps to Install Conda
 ----------------------
-**Step 1. Open a Terminal or Command Prompt.**
+**Step 1. Connect to our systems.**
+Follow the steps in our tutorial :doc:`here<ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>` to connect to your system of choice.
 
-**Step 2: Run the SSH Command**  
-Use the following command to connect to TACC systems:
-
-:: 
-
-    ssh <username>@<hostname>
-
-(replace `<username>` with your TACC username and `<hostname>` with the system hostname)
-
-**Example:**
-To connect to the Frontera system:
-
-::
-
-    ssh username@frontera.tacc.utexas.edu
-
-**Enter Your Password**  
-When prompted, type your TACC password. If this is your first time logging in, you may be required to set up or reset your password.
-
-**Step 3: Set Up Two-Factor Authentication**  
-TACC systems require two-factor authentication. Follow the on-screen prompts to complete the process.
+Once we have connected to TACC systems, we can now install Miniforge.
 
 .. note::
    
     It is best practice to store conda environments in the $WORK directory because the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks. 
+
 
 **Step 4. Install MiniForge**
 Miniforge is one of several Conda installers, others examples include Anaconda and Miniconda. We will be use miniforge  to download Conda into the $WORK directory.
