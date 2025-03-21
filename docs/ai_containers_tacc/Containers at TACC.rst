@@ -1,10 +1,10 @@
 Containers at TACC
 ==================
-In the last section, we covered an overview of tools commonly used to build AI and ML applications and use each of these tools to install Pytorch on TACC's supercomputer, Frontera.
-In this section we will focus on building containers at TACC and leveraging these containers in Jupyter notebooks. 
+In the last section, we covered an overview of tools commonly used to build AI and ML environments and use each of these tools to install Pytorch on TACC's supercomputer, Frontera.
+In this section we will focus on building dependencies into containers and leveraging these containers in Jupyter notebooks. 
 
-Well get started in the **Advanced Container Build** tutorial where we’ll walk through building a customized GPUS enabled container built for BERT classification model. 
-Then in the **Containerized Kernel tutorial**, we’ll be learning how to share and distribute kernels (environments that run your code) in Jupyter Notebook.
+Well get started in the **Advanced Container Build** tutorial where we’ll walk through building a customized GPU-enabled container built to run a BERT classification model. 
+Then in the **Containerized Kernel tutorial** we’ll be learning how to use container as the kernel (environments that run your code) for a Jupyter Notebook on Frontera.
 
 
 .. toctree::
