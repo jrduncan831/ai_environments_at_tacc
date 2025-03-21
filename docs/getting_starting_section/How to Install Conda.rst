@@ -29,51 +29,9 @@ We are going to install Conda in **Frontera** for the sake of this tutorial. Whe
 .. image:: images/conda-tut-1.png
    :alt: Frontera_home_screen
 
-SSHing into Frontera takes you to the $HOME directory by default. Try running the **pwd (Print Working Directory)** command to see where you are:
+SSHing into Frontera takes you to the $HOME directory by default. Change your directory to **$WORK** by using the `How to Change Directories <ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>`_ tutorial.
 
-.. image:: images/conda-tut-2.png
-   :alt: PWD_command
-
-As you can see, we are on home. We need to get into Work. **cd (change directory)** all the way back to the main directory of the system, so we can choose to install Conda on the $WORK directory. Here the working directory is also printed out to the screen with pwd to visualize going back in our directories:
-
-.. image:: images/conda-tut-3.png
-   :alt: CD_command
-
-Let's see where our $WORK directory is. Use **ls -a (list all)** to view all files in the current directory:
-
-.. image:: images/conda-tut-4.png
-   :alt: ls_a_command
-
-Notice how we have the disk options that were presented to us when we first logged onto Frontera available for us to cd into (home1, work2, and scratch1, scratch2, and scratch3).
-
-These are the $HOME, $WORK, and $SCRATCH directories available for you specifically–and they may differ depending on the user.
-
-Let's cd into **our specific work directory** with the following command:
-
-::
-
-    cd/work/#####/<username>
-
-Where the numbers ##### will be your group number, and the <username> your TACC username.
-
-When you get to your directory, you’ll see that you have multiple partitions available to you depending on the system you’re using:
-
-.. image:: images/conda-tut-4.png
-   :alt: partitions_available
-
-This is a unique quality of the **$WORK** directories. Because they’re mounted in Stockyard and **shared across all systems**, you can access files from other systems with ease. We are on frontera, and we’ll be installing conda in the frontera work directory. Cd into frontera with:
-
-::
-
-    cd frontera
-
-When you run pwd, your working directory should now be:
-
-::
-
-    /work/#####/<username>/frontera
-
-Now that we’re in the work directory for frontera, we can install Conda. Use **curl** (a command-line tool to transfer data from a server via HTTP) to download Miniforge which will come bundled with conda.
+Once you are in the $WORK directory for frontera, we can install Conda. Use **curl** (a command-line tool to transfer data from a server via HTTP) to download Miniforge which will come bundled with conda.
 
 Run the following command in your terminal:
 
@@ -84,7 +42,7 @@ Run the following command in your terminal:
     curl -LO https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 
 .. note::
-    This download pulls it directly from the github link for the Linux architecture, which is what our systems use. If you follow this tutorial to install it on a local machine, you will need to change the URL to the installation file containing Miniforge for your system, which can be found in the same repo:
+    This download pulls it directly from the github link for the Linux architecture, which is what our systems use. If you follow this tutorial to install it on a local machine, you will need to change the URL to the installation file containing Miniforge for your system, which can be found in the same repository:
     https://github.com/conda-forge/miniforge/releases
 
 Now make the execution script executable with **chmod**, which modifies file permissions so that we can execute (**+x**) the file:
@@ -166,7 +124,7 @@ To run the multi_gpu_torchrun script, we must first use the **idev** tool to req
 **Step 1. Request a Node through idev**
     The `idev <https://docs.tacc.utexas.edu/software/idev/>`_ command is a tool developed by TACC to facilitate real-time software development on our HPC systems.
 
-First, we'll start an idev session. Ensure your current directory is:
+First, we'll start an idev session. Ensure your current directory is **$WORK**.
 
 ::
 

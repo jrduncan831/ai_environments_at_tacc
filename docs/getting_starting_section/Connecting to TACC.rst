@@ -71,6 +71,58 @@ $WORK utilizes Lustre striping which is optimized for large files but can be ine
 
 Additional information about running Conda on TACC systems can be found in `How to Install Conda <ai_environments_at_tacc\docs\getting_starting_section\How to Install Conda.rst>`_, but for now, it is advisable to run Conda tasks in the $SCRATCH environment due to its high I/O load requirements.
 
+How to Change your directory
+----------------------------
+SSHing into Frontera takes you to the $HOME directory by default. Try running the **pwd (Print Working Directory)** command to see where you are:
+
+.. image:: images/conda-tut-2.png
+   :alt: PWD_command
+
+As you can see, we are on home. If you want to get onto a different directory, you will have to **CD into that directory** first.
+
+Let's try CDing into the **$WORK** directory.
+
+ **cd (change directory)** all the way back to the main directory of the system, so we can get into the $WORK directory. Here the working directory is also printed out to the screen with pwd to visualize going back in our directories:
+
+.. image:: images/conda-tut-3.png
+   :alt: CD_command
+
+Let's see where our $WORK directory is. Use **ls -a (list all)** to view all files in the current directory:
+
+.. image:: images/conda-tut-4.png
+   :alt: ls_a_command
+
+Notice how we have the disk options that were presented to us when we first logged onto Frontera available for us to cd into (home1, work2, and scratch1, scratch2, and scratch3).
+
+These are the $HOME, $WORK, and $SCRATCH directories available for you specifically–and they may differ depending on the user.
+
+Let's cd into **our specific work directory** with the following command:
+
+::
+
+    cd/work/#####/<username>
+
+Where the numbers ##### will be your group number, and the <username> your TACC username.
+
+When you get to your directory, you’ll see that you have multiple partitions available to you depending on the system you’re using:
+
+.. image:: images/conda-tut-4.png
+   :alt: partitions_available
+
+This is a unique quality of the **$WORK** directories. Because they’re mounted in Stockyard and **shared across all systems**, you can access files from other systems with ease. Let's try getting into **Frontera**. Cd into Frontera with:
+
+::
+
+    cd frontera
+
+When you run pwd, your working directory should now be:
+
+::
+
+    /work/#####/<username>/frontera
+
+Congrats! You are now in your WORK directory.
+
 Requesting a Node to Work On
 ----------------------------
 A node on one of the TACC systems refers to an individual CPU paired with some memory and local storage. Most of our systems are composed of **compute** nodes (for running tasks) and **login** nodes (for directing users and tasks towards the compute nodes).
