@@ -88,6 +88,8 @@ There may be a wait time as you sit in the queue. Once the command runs successf
 
 Once you have successfully have a shell launched on a compute node, you will need to load apptainer using module.  
 
+To view the default modules on Frontera, view tutorials `here. <https://docs.tacc.utexas.edu/hpc/frontera/#admin-configuring-modules>`_
+
 Run the command:
 
 ::
@@ -102,6 +104,8 @@ You should see:
     1) intel/19.1.1   4) autotools/1.2   7) hwloc/1.11.12  10) tacc-apptainer/1.3.3
     2) impi/19.0.9    5) python3/3.7.0   8) xalt/2.10.34
     3) git/2.24.1     6) cmake/3.24.2    9) TACC
+
+We currently have modules loaded which are default to Frontera. You can choose to unload modules at your leisure.
 
 To load the apptainer module, run:
 ::
@@ -118,6 +122,15 @@ Which should return:
 ::
 
     apptainer is /opt/apps/tacc-apptainer/1.3.3/bin/apptainer
+
+When you run **module list**, you should now see: 
+
+::
+
+    Currently Loaded Modules:
+    1) intel/19.1.1   4) autotools/1.2   7) hwloc/1.11.12  **10) tacc-apptainer/1.3.3**
+    2) impi/19.0.9    5) python3/3.7.0   8) xalt/2.10.34
+    3) git/2.24.1     6) cmake/3.24.2    9) TACC
 
 **Step 4. Download test data**
 First, we will download some test data to run a simple ML task on. Clone the examples library from the official Pytorch Github repository by running:
