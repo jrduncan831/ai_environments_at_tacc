@@ -89,7 +89,7 @@ Command for Installing Pytorch
 ------------------------------
 We also need Pytorch to be present in our Dockerfile to run BERT.
 
-The PyTorch website provides a `widget <https://pytorch.org/get-started/locally/>`_ on their website to generate the correct installation command for different environments for recent versions of pytorch. Since we need PyTorch 1.7.1 with CUDA 11.0, we will need to view the “older versions” of pytorch, which can be found `here <https://pytorch.org/get-started/previous-versions/>`_.  Scrolling down to v1.7.1 look for the “wheel” section that provides the pip install command for Linux/Windows for CUDA 11. The command we need is:
+The PyTorch website provides a `widget <https://pytorch.org/get-started/locally/>`_ on their website to generate the correct installation command for different environments for recent versions of pytorch. Since we need PyTorch 1.7.1 with CUDA 11.0, we will need to view the “older versions” of pytorch, which can be found `in the pytorch docs <https://pytorch.org/get-started/previous-versions/>`_.  Scrolling down to v1.7.1 look for the “wheel” section that provides the pip install command for Linux/Windows for CUDA 11. The command we need is:
 
 ::
 
@@ -142,9 +142,9 @@ Building a docker image from the Dockerfile
 -------------------------------------------
 
 When building the container, we have to build it for the specific computer architecture we plan to run the container on. 
-In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64. Specific architectures for TACC systems can be found `here. <https://tacc.utexas.edu/systems/all/>`_
+In the case of Frontera, that’s linux/amd64, for Vista it’s linux/arm64. Specific architectures for TACC systems can be found `in TACCs documentation. <https://tacc.utexas.edu/systems/all/>`_
 
-A tutorial of how to automatically make builds for all possible architectures simultaneously is available `here <https://containers-at-tacc.readthedocs.io/en/latest/advanced/02.multiarchitecture.html>`_.  
+A tutorial of how to automatically make builds for all possible architectures simultaneously is available `in TACCs container tutorial <https://containers-at-tacc.readthedocs.io/en/latest/advanced/02.multiarchitecture.html>`_.  
 
 .. note::
     Docker Desktop on Mac/Windows can build for architectures different than the one they are running on by default, but Linux requires some additional software libraries (outlined in the linked tutorial)

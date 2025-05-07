@@ -13,7 +13,7 @@ Conda-Forge is a comunity-driven repository of conda packages. Mini-Forge is a l
 Steps to Install Conda
 ----------------------
 **Step 1. Connect to our systems.**
-Follow the steps in our tutorial :doc:`here<ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>` to connect to your system of choice.
+If you are unfamiliar with how to do this, please review the section called **Connecting to TACC**.
 
 Once we have connected to TACC systems, we can now install Miniforge.
 

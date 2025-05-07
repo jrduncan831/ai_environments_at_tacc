@@ -146,7 +146,7 @@ Many TACC systems have both CPU-only nodes and CPU+GPU nodes available to use. T
 
 
 Connect using Jupyter Notebooks with the TACC Analysis Portal (TAP)
---------------------------------------
+-------------------------------------------------------------------
 There are multiple ways to request a node on the TACC systems. The easiest method of doing so would be from the tacc analysis portal if you are using Frontera, Stampede3, Lone Star 6, or Vista: https://tap.tacc.utexas.edu/
 
 Ensure you have a TACC user account before attempting to use the analysis portal.

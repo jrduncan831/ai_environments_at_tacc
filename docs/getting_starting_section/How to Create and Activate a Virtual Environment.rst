@@ -15,7 +15,7 @@ Steps to Create and Activate a Virtual Environment
 --------------------------------------------------
 
 **Step 1. Connect to our systems.**
-Follow the steps in our tutorial :doc:`here<ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>` to connect to your system of choice.
+If you are unfamiliar with how to do this, please review the section called **Connecting to TACC**.
 
 Once we have connected to TACC systems, we can now create the virtual environment.
 
@@ -109,6 +109,7 @@ This is how you will know your idev session has begun. **Ensure you see the (mye
 
 **Step 9. CD into the ddp tutorial series folder**
    We should now see a new directory called **examples** present in our virtual environment.
+
 **cd** into the following directory:
 
 ::
