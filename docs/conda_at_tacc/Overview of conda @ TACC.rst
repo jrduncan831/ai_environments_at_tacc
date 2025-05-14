@@ -18,6 +18,6 @@ If we are using conda outside of a container, some thought needs to go into wher
     2. SCRATCH
         - In terms of optimizing the I/O that takes place with conda, SCRATCH  is the correct location.  Unfortunately since SCRATCH can be purged, storing conda environments here is non-ideal.
     3. WORK
-        - Conda environments should NOT be run from WORK as it often can overload the filesystem for all users. If you are transfering or storing a conda environment on WORK, please copy it to SCRATCH before activating it.
+        - Conda environments should NOT be run from WORK as it can overload the filesystem for all users. If you are transfering or storing a conda environment on WORK, please copy it to SCRATCH before activating it.
 
 For large conda environments, moving the conda environment into a container can reduce the file I/O overhead.  Next, let’s take a look at an example of where we use miniforge within a container to build an environment. 
