@@ -14,10 +14,10 @@ Where to Install Conda Outside of a Container
 If we are using conda outside of a container, some thought needs to go into where to place it on our file systems (HOME, WORK, or SCRATCH).  No location is perfect– here are pros and cons of each:
 
     1. HOME 
-        - Generally, you should not place conda in HOME unless the environment you build is very small due to the small quota in HOME. 
+        - Generally, you should not place conda in HOME unless the environment you build is very small due to the small disk quota in HOME. 
     2. SCRATCH
-        - In terms of optimizing the I/O that takes place with conda, SCRATCH  is the correct location.  Unfortunately since SCRATCH can be purged, placing conda here is non-ideal.
+        - In terms of optimizing the I/O that takes place with conda, SCRATCH  is the correct location.  Unfortunately since SCRATCH can be purged, storing conda environments here is non-ideal.
     3. WORK
-        - The best location to place conda is in WORK.  However, this also comes with its own problems.  If you have very large environments (many thousands of files) it does a number on the Lustre file system if you’re running lots of jobs in parallel.
+        - Conda environments should NOT be run from WORK as it often can overload the filesystem for all users. If you are transfering or storing a conda environment on WORK, please copy it to SCRATCH before activating it.
 
-For smaller jobs, we can get away with installing conda on WORK.  However, for jobs that require many jobs running in parallel, it is best to look for alternative solutions to setting up your environments.  Moving conda into containers in these scenarios is best.  Next, let’s take a look at an example of where we use miniforge within a container to build an environment. 
+For large conda environments, moving the conda environment into a container can reduce the file I/O overhead.  Next, let’s take a look at an example of where we use miniforge within a container to build an environment. 
