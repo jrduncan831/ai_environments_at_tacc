@@ -19,19 +19,19 @@ Once we have connected to TACC systems, we can now install Miniforge.
 
 .. note::
    
-    It is best practice to store conda environments in the $WORK directory because the $SCRATCH directory is regularly purged, and $HOME does not have the storage space for ML tasks. 
+    It is best practice to build conda environments in the $SCRATCH directory because conda can overload the filesystem which used on $WORK  and $HOME does not have the storage space for ML tasks. It is important to note that on $SCRATCH your environment is subject to being purged.  Care should be taken to back up the environments you build on $WORK. 
 
 
 **Step 2. Install MiniForge**
-Miniforge is one of several Conda installers, others examples include Anaconda and Miniconda. We will be use miniforge  to download Conda into the $WORK directory.
+Miniforge is one of several Conda installers, others examples include Anaconda and Miniconda. We will be use miniforge  to download Conda into the $SCRATCH directory.
 We are going to install Conda in **Frontera** for the sake of this tutorial. When you SSH into Frontera, you will see this screen:
 
 .. image:: images/conda-tut-1.png
    :alt: Frontera_home_screen
 
-SSHing into Frontera takes you to the $HOME directory by default. Change your directory to **$WORK** by using the `How to Change Directories <ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>`_ tutorial.
+SSHing into Frontera takes you to the $HOME directory by default. Change your directory to **$SCRATCH** by using the `How to Change Directories <ai_environments_at_tacc\docs\getting_starting_section\Connecting to TACC.rst>`_ tutorial.
 
-Once you are in the $WORK directory for frontera, we can install Conda. Use **curl** (a command-line tool to transfer data from a server via HTTP) to download Miniforge which will come bundled with conda.
+Once you are in the $SCRATCH directory for frontera, we can install Conda. Use **curl** (a command-line tool to transfer data from a server via HTTP) to download Miniforge which will come bundled with conda.
 
 Run the following command in your terminal:
 
@@ -59,7 +59,7 @@ Now we can run the Miniforge installer:
 
 .. note::
     When you run the bash script, you will have some disclaimers pop up on your command line during the installation process. This disclaimer will walk you through the installation steps for Miniforge, but it will present to you a default installation folder that is in the **$HOME** directory.
-    **Ensure you change this to your work/frontera directory before you install Miniforge.**
+    **Ensure you change this to your scratch/frontera directory before you install Miniforge.**
 
 After running the bash script, it will ask you to update your shell profile to automatically initialize conda. **Type ‘yes’.**
 
@@ -124,13 +124,13 @@ To run the multi_gpu_torchrun script, we must first use the **idev** tool to req
 **Step 1. Request a Node through idev**
     The `idev <https://docs.tacc.utexas.edu/software/idev/>`_ command is a tool developed by TACC to facilitate real-time software development on our HPC systems.
 
-First, we'll start an idev session. Ensure your current directory is **$WORK**.
+First, we'll start an idev session. Ensure your current directory is **$SCRATCH**.
 
 ::
 
-    /work/<group number>/<TACC username>/frontera
+    /scratch/<group number>/<TACC username>/frontera
 
-You should be in the **work** folder for Frontera. In this work folder, begin your idev session by running:
+You should be in the **scratch** folder for Frontera. In this work folder, begin your idev session by running:
 
 ::
 
@@ -168,7 +168,7 @@ Once the environment is properly activated, your working directory should look l
     (pytorch_env) c196-012[rtx](418)$
 
 **Step 4. Install Pytorch in Conda Environment**
-To install Pytorch in our new Conda environment- which is in the $WORK directory of Frontera, running in a single rtx node idev session- run the following Conda command in the environment:
+To install Pytorch in our new Conda environment- which is in the $SCRATCH directory of Frontera, running in a single rtx node idev session- run the following Conda command in the environment:
 
 .. note::
     We will need to install Cuda to run the multigpu_torchrun.py file on the Frontera's NVIDIA GPUs.
@@ -194,7 +194,7 @@ This is an official repository containing dozens of example scripts from the Pyt
 
 
 **Step 6. CD into the ddp tutorial series folder**
-Upon listing all of the directories now present in the **$WORK** folder, we should now see a new directory called **examples**.
+Upon listing all of the directories now present in the **$SCRATCH** folder, we should now see a new directory called **examples**.
 Now **cd** into the following directory:
 
 ::
