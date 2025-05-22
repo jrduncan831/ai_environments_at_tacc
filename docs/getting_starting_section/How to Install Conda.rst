@@ -19,7 +19,7 @@ Once we have connected to TACC systems, we can now install Miniforge.
 
 .. note::
    
-    It is best practice to build conda environments in the $SCRATCH directory because conda can overload the filesystem which used on $WORK  and $HOME does not have the storage space for ML tasks. It is important to note that on $SCRATCH your environment is subject to being purged.  Care should be taken to back up the environments you build on $WORK. 
+    It is best practice to build conda environments in the $SCRATCH directory because conda can overload the filesystem when using $WORK  and $HOME does not have the storage space for ML tasks. It is important to note that on $SCRATCH your environment is subject to being purged.  Care should be taken to back up the environments you build on $WORK. 
 
 
 **Step 2. Install MiniForge**
